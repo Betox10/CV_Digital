@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CV Digital | Lázaro Roberto Luevano Serna</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<canvas id="tron-bg"></canvas>
+
+<header class="header">
+  <h1 class="tron-name">LÁZARO ROBERTO LUEVANO SERNA</h1>
+  <p data-i18n="legend">Desarrollador de Software · Full Stack · IoT</p>
+  <div class="lang-switch">
+  <button onclick="setLanguage('es')">ES</button>
+  <button onclick="setLanguage('en')">EN</button>
+</div>
+</header>
+
+<main class="cv-grid">
+
+  <!-- COLUMNA IZQUIERDA -->
+  <aside class="left">
+
+    <section class="card reveal card-orange">
+      <h2 data-i18n="cont_title">Contacto</h2>
+      <p data-i18n="phone">Telefono: 449-550-5392</p>
+      <p data-i18n="mail">Email: lazarox2004@gmail.com</p>
+      <p>GitHub: github.com/Betox10</p>
+      <p data-i18n="ubi">Ubicación: Aguascalientes, México</p>
+    </section>
+
+    <section class="card reveal">
+      <h2 data-i18n="edu">Educación</h2>
+      <p>
+        <p data-i18n="first_date">Julio 2019 - Agosto 2022</p>
+        <p>CEB 8/5 “Ezequiel A. Chavez</p>
+        <ul>
+            <li data-i18n="sub2">Certificado en Desarrollo Web</li><br>
+            <li data-i18n="sub3">Certificado de finalizacion de Bachillerato</li><br>
+        </ul>
+        <p data-i18n="second_date">Agosto 2022 - Mayo 2025</p>
+        <p data-i18n="mayor1">UTMA - TSU en Inteligencia Artificial</p>
+        <p data-i18n="th_date">Mayo 2025 - Presente</p>
+        <p data-i18n="mayor2">UTMA - ING. en Inovación Digital</p>
+      </p>
+    </section>
+
+    <section class="card reveal card-yellow">
+      <h2 data-i18n="hab_title">Habilidades</h2>
+      <ul>
+        <li data-i18n="hab1">Inglés - Nivel Intermedio B1</li><br>
+        <li data-i18n="hab2">Python - Nv Junior</li><br>
+        <li data-i18n="hab3">JavaScript - Nv Junior</li><br>
+        <li data-i18n="hab4">PHP - Nv Junior</li><br>
+        <li data-i18n="hab5">Java - Nv Junior</li><br>
+        <li data-i18n="hab6">HTML / CSS - Nv Junior</li><br>
+        <li data-i18n="hab7">MySQL - Nv Junior</li><br>
+        <li data-i18n="hab8">Firebase - Nv Junior</li><br>
+        <li data-i18n="hab9">Flutter - Nv Junior</li><br>
+        <li data-i18n="hab10">GitHub - Nv Junior</li><br>
+        <li data-i18n="hab11">IoT - Nv Junior</li>
+      </ul>
+    </section>
+
+  </aside>
+
+  <!-- COLUMNA CENTRAL -->
+  <section class="center">
+
+    <section class="card reveal">
+      <h2 data-i18n="pp_title">Perfil Profesional</h2>
+      <p data-i18n="pp_1">
+        Estudiante y aspirante a desarrollador de software con conocimientos iniciales en
+        programación Full Stack (Backend y Frontend).
+      </p>
+      <p data-i18n="pp_2">
+        Poseo bases sólidas en lenguajes como Python, JavaScript, PHP, Java y tecnologías
+        web como HTML y CSS, así como manejo de bases de datos MySQL y Firebase.
+      </p>
+      <p data-i18n="pp_3">
+        Cuento con experiencia en desarrollo móvil con Flutter y participación activa en
+        hackathones, demostrando capacidad de aprendizaje rápido y trabajo en equipo.
+        Además, poseo experiencia administrativa universitaria con habilidades organizativas.
+      </p>
+    </section>
+
+    <section class="card reveal">
+      <h2 data-i18n="EL_title">Experiencia Laboral</h2>
+
+      <h3 data-i18n="EL_sub1">Becario en Dirección Académica</h3>
+      <p data-i18n="fetch_sub1"><strong>UTMA</strong> | Mayo 2025 – Presente</p>
+      <ul>
+        <li data-i18n="sub1_des1">Desarrollador Full Stack de la plataforma STRIDE para la gestion de actividades y comunicados de la universidad
+            como apoyo al area de Desarrollo Institucional.
+        </li><br>
+        <li data-i18n="sub1_des2">Apoyo en el manejo de asuntos directivos, actuando como enlace administrativo para la Dirección.</li><br>
+        <li data-i18n="sub1_des3">Responsable de la organización, clasificación y gestión de la documentación académica.</li>
+      </ul>
+
+      <div class="tech-stack">
+        <i class="devicon-html5-plain"></i>
+        <i class="devicon-css3-plain"></i>
+        <i class="devicon-javascript-plain"></i>
+        <i class="devicon-nodejs-plain"></i>
+        <i class="devicon-react-plain"></i>
+        <i class="devicon-mysql-plain"></i>
+        <i class="devicon-github-original"></i>
+        </div>
+      
+      <div class="project-gallery">
+        <div class="carousel" id="apiCarousel">
+          <button class="prev" onclick="moveSlide('apiCarousel', -1)">‹</button>
+          <div class="carousel-track">
+            <img src="assets/STRIDE/STRIDE WITHE LETTERS.png" class="slide logo">
+            <img src="assets/STRIDE/str1.png" class="slide active">
+            <img src="assets/STRIDE/str2.png" class="slide">
+            <img src="assets/STRIDE/str3.png" class="slide">
+          </div>
+          <button class="next" onclick="moveSlide('apiCarousel', 1)">›</button>
+        </div>
+      </div>
+
+      <h3 data-i18n="EL_sub2">Desarrollador Full Stack</h3>
+      <p data-i18n="fetch_sub2"><strong>UTMA</strong> | Enero – Abril 2025</p>
+      <ul>
+        <li data-i18n="sub2_des1">Desarrollo Full-Stack : Responsable de la arquitectura y codificación completa de la plataforma, cubriendo el Backend (Manejo de acciones), 
+            el Frontend (interfaz de usuario y experiencia) y la administración de la Base de Datos.
+        </li><br>
+        <li data-i18n="sub2_des2">Gestión Integral: Manejo de todas las fases del proyecto, desde la planificación inicial hasta 
+            las pruebas de funcionalidad y la implementación final en el entorno productivo.</li><br>
+        <li data-i18n="sub2_des3">Resultados y Función: La plataforma fue diseñada para la evaluación docente de la institución, cumpliendo con su objetivo.</li>
+      </ul>
+
+      <div class="tech-stack">
+        <i class="devicon-html5-plain"></i>
+        <i class="devicon-css3-plain"></i>
+        <i class="devicon-javascript-plain"></i>
+        <i class="devicon-php-plain"></i>
+        <i class="devicon-mysql-plain"></i>
+        </div>
+
+      <div class="project-gallery">
+        <div class="carousel" id="sedCarousel">
+          <button class="prev" onclick="moveSlide('sedCarousel', -1)">‹</button>
+          <div class="carousel-track">
+            <img src="assets/SED/sed1.png" class="slide active">
+            <img src="assets/SED/sed2.png" class="slide">
+            <img src="assets/SED/sed3.png" class="slide">
+            <img src="assets/SED/sed4.png" class="slide">
+          </div>
+          <button class="next" onclick="moveSlide('sedCarousel', 1)">›</button>
+        </div>
+      </div>
+
+      <h3 data-i18n="EL_sub3">Desarrollador Backend</h3>
+      <p data-i18n="fetch_sub3"><strong>CAFINCA</strong> | Abril – Noviembre 2024</p>
+      <ul>
+        <li data-i18n="sub3_des1">Participación en el desarrollo de una extensión al sistema de una cafetera automatizada.</li><br>
+        <li data-i18n="sub3_des2">Encargado del mantenimiento del equipo.</li><br>
+        <li data-i18n="sub3_des3">Participación en reuniones con los encargados de la empresa.</li>
+      </ul>
+      <div class="tech-stack">
+        <i class="devicon-python-plain"></i>
+        <i class="devicon-github-original"></i>
+        </div>
+
+      <h3 data-i18n="EL_sub4">Desarrollador Web</h3>
+      <p data-i18n="fetch_sub4"><strong>Club Campestre Aguascalientes</strong> | Abril – Agosto 2024</p>
+      <ul>
+        <li data-i18n="sub4_des1">Implementación de reconocimiento vehicular con IA.</li><br>
+        <li data-i18n="sub4_des2">Participación en manejo de la Base de Datos y Backend.</li><br>
+      </ul>
+      <div class="tech-stack">
+        <i class="devicon-python-plain"></i>
+        <i class="devicon-opencv-plain"></i>
+        <i class="devicon-mysql-plain"></i>
+        <i class="devicon-github-original"></i>
+        </div>
+      <div class="project-gallery">
+        <div class="carousel" id="campCarousel">
+          <button class="prev" onclick="moveSlide('campCarousel', -1)">‹</button>
+          <div class="carousel-track">
+            <img src="assets/CAMP/camp1.png" class="slide active">
+            <img src="assets/CAMP/camp2.png" class="slide">
+            <img src="assets/CAMP/camp3.png" class="slide">
+            <img src="assets/CAMP/camp4.png" class="slide">
+            <img src="assets/CAMP/camp5.png" class="slide">
+          </div>
+          <button class="next" onclick="moveSlide('campCarousel', 1)">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card reveal">
+      <h2 data-i18n="AE_title">Actividades Extracurriculares</h2>
+
+      <h3 data-i18n="AE_sub1">Desarrollador Full Stack</h3>
+      <p data-i18n="AEfetch_sub1">NASA Space Apps Challenge – UNAQ | Octubre 2025</p>
+
+      <ul>
+        <li data-i18n="AEsub1_des1"></li>Creación de una plataforma web con un mapa global interactivo que permite a los usuarios obtener datos precisos 
+            sobre la calidad del aire en tiempo real al seleccionar cualquier país.</li><br>
+        <li data-i18n="AEsub1_des2">Manejo de APIs REST para la extracción y visualización de métricas ambientales complejas.</li>
+      </ul>
+
+      <div class="tech-stack">
+        <i class="devicon-javascript-plain"></i>
+        <i class="devicon-html5-plain"></i>
+        <i class="devicon-css3-plain"></i>
+        <i class="devicon-api-plain"></i>
+        <i class="devicon-github-original"></i>
+        <span class="custom-tech">API</span>
+        </div>
+
+      <div class="project-gallery">
+        <div class="carousel" id="pionCarousel">
+          <button class="prev" onclick="moveSlide('pionCarousel', -1)">‹</button>
+          <div class="carousel-track">
+            <img src="assets/PION/pion1.png" class="slide active">
+            <img src="assets/PION/pion2.png" class="slide">
+            <img src="assets/PION/pion3.png" class="slide">
+          </div>
+          <button class="next" onclick="moveSlide('pionCarousel', 1)">›</button>
+      </div>
+
+      <h3 data-i18n="AE_sub2">Desarrollador Backend (Métodos de Pago)</h3>
+      <p data-i18n="AEfetch_sub2">HydroTalent 2025 | Enero – Abril 2025</p>
+
+      <ul>
+        <li data-i18n="AEsub2_des1">Integración técnica del método de pago MercadoPago para Developers, permitiendo transacciones seguras dentro de un sitio web.</li><br>
+        <li data-i18n="AEsub2_des2">Manejo de credenciales de prueba y producción (Sandbox para garantizar la estabilidad del flujo de pago antes del lanzamiento).</li>
+      </ul>
+
+      <div class="tech-stack">
+        <i class="devicon-javascript-plain"></i>
+        <i class="devicon-nodejs-plain"></i>
+        <i class="devicon-mysql-plain"></i>
+        <span class="custom-tech">API</span>
+        </div>
+      
+        <div class="project-gallery">
+        <div class="carousel" id="tramCarousel">
+          <button class="prev" onclick="moveSlide('tramCarousel', -1)">‹</button>
+          <div class="carousel-track">
+            <img src="assets/TRAM/tram1.png" class="slide active">
+            <img src="assets/TRAM/tram2.png" class="slide">
+            <img src="assets/TRAM/tram3.png" class="slide">
+            <img src="assets/TRAM/tram4.png" class="slide">
+            <img src="assets/TRAM/tram5.png" class="slide">
+            <img src="assets/TRAM/tram6.png" class="slide">
+          </div>
+          <button class="next" onclick="moveSlide('tramCarousel', 1)">›</button>
+      </div>
+
+      <h3 data-i18n="AE_sub3">Expositor</h3>
+      <p data-i18n="AEfetch_sub3">FLISOL 20° Aniversario – Bogotá, Colombia | Mayo 2024</p>
+
+      <ul>
+        <li data-i18n="AEsub3_des1">Expositor en la conferencia sobre Motoko y proyectos de IA.</li><br>
+        <li data-i18n="AEsub3_des2">Interacción con una audiencia de desarrolladores y estudiantes proporcionando ideas y respondiendo preguntas sobre el tema.</li>
+      </ul>
+
+      <h3 data-i18n="AE_sub4">Desarrollador Web</h3>
+      <p data-i18n="AEfetch_sub4">HydroTalent 2023 | Septiembre 2023</p>
+
+      <ul>
+        <li data-i18n="AEsub4_des1">Rediseño de la interfaz de usuario de un proyecto previo (de Astro ICP, mejorando el uso y la navegación para el usuario).</li><br>
+        <li data-i18n="AEsub4_des2">Implementación de la lógica de backend utilizando el lenguaje Motoko.</li>
+      </ul>
+
+      <div class="tech-stack">
+        <i class="devicon-html5-plain"></i>
+        <i class="devicon-css3-plain"></i>
+        <i class="devicon-javascript-plain"></i>
+        <i class="devicon-canister-plain"></i>
+        <i class="devicon-mysql-plain"></i>
+        <i class="devicon-arduino-plain"></i>
+        <i class="devicon-github-original"></i>
+        <span class="custom-tech">API</span>
+        <span class="custom-tech">ICP</span>
+        </div>
+
+      <h3 data-i18n="AE_sub5">Desarrollador Web</h3>
+      <p data-i18n="AEfetch_sub5">Astro ICP Hackathon 2023 | Septiembre 2023</p>
+      
+      <ul>
+        <li data-i18n="AEsub5_des1">Conexión de microcontroladores ESP32 con la red descentralizada de Internet Computer para el envío y almacenamiento de alertas en tiempo real.</li><br>
+        <li data-i18n="AEsub5_des2">Desarrollo de un backend en Motoko para procesar señales de sensores y gestionar el estado del sistema de forma segura.</li><br>
+        <li data-i18n="AEsub5_des3">Creación de una interfaz web básica que notifica la detección de fuego o humo, dando una respuesta rápida ante emergencias.</li>
+      </ul>
+
+      <div class="tech-stack">
+        <i class="devicon-html5-plain"></i>
+        <i class="devicon-css3-plain"></i>
+        <i class="devicon-javascript-plain"></i>
+        <i class="devicon-canister-plain"></i>
+        <i class="devicon-mysql-plain"></i>
+        <i class="devicon-arduino-plain"></i>
+        <i class="devicon-github-original"></i>
+        <span class="custom-tech">API</span>
+        <span class="custom-tech">ICP</span>
+        </div>
+      
+      <div class="project-gallery">
+        <div class="carousel" id="fireguardCarousel">
+          <button class="prev" onclick="moveSlide('fireguardCarousel', -1)">‹</button>
+          <div class="carousel-track">
+            <img src="assets/FIREGUARD/fir1.png" class="slide active">
+            <img src="assets/FIREGUARD/fir2.png" class="slide">
+            <img src="assets/FIREGUARD/fir3.png" class="slide">
+          </div>
+          <button class="next" onclick="moveSlide('fireguardCarousel', 1)">›</button>
+        </div>
+      </div>
+      
+    </section>
+
+  </section>
+
+  <!-- COLUMNA DERECHA -->
+  <aside class="right">
+
+    <section class="card reveal card-yellow">
+      <h2 data-i18n="Log_title">Logros</h2>
+      <ul>
+        <li data-i18n="Log1">Primer Lugar – Astro ICP Hackathon (Sector Medio Ambiente).</li><br>
+        <li data-i18n="Log2">Primer Lugar – HydroTalent 2023.</li>
+      </ul>
+    </section>
+
+    <section class="card reveal">
+      <h2 data-i18n="Cer_title">Certificaciones</h2>
+      <ul>
+        <li>Google Cloud</li> <br>
+        <li>SCRUM</li> <br>
+        <li>Internet Computer Protocol (Azle y Motoko)</li> <br>
+        <li>OpenPayment</li> <br>
+        <li data-i18n="cer1">Desarrollo Instruccional en Educación en Línea</li> 
+      </ul>
+    </section>
+
+    <section class="card reveal card-yellow">
+      <h2 data-i18n="rec_title">Reconocimientos</h2>
+      <ul>
+        <li>Galactic Problem Solver – NASA Space Apps Challenge 2025</li><br>
+        <li data-i18n="rec1">Reconocimiento por Innovación – Hackathon NASA ICP</li><br>
+        <li data-i18n="rec2">Participante – HydroTalent 2023 y 2025</li><br>
+        <li data-i18n="rec3">Participante y Colaborador – FLISOL 20° Aniversario</li>
+      </ul>
+    </section>
+
+  </aside>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

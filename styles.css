@@ -1,0 +1,400 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: black;
+  color: #00eaff;
+  overflow-x: hidden;
+}
+
+/* CANVAS DE FONDO */
+#tron-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 2px solid #00eaff;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* GRID PRINCIPAL */
+.cv-grid {
+  display: grid;
+  grid-template-columns: 1fr 2.3fr 1fr;
+  gap: 20px;
+  padding: 30px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* COLUMNAS */
+.left, .center, .right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* TARJETAS */
+.card {
+  border: 1px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 18px rgba(0, 234, 255, 0.15);
+  --tron-color: #00eaff;
+}
+
+/* TITULOS */
+h2 {
+  margin-top: 0;
+  color: #00ffff;
+  border-bottom: 1px solid #00eaff;
+  padding-bottom: 5px;
+}
+
+h3 {
+  margin-bottom: 5px;
+  color: #7df9ff;
+}
+
+/* LISTAS */
+ul {
+  padding-left: 18px;
+}
+
+/* SCROLL ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .cv-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.tech-stack i {
+  font-size: 28px;
+  color: #00e5ff;
+  transition: transform 0.3s, text-shadow 0.3s;
+}
+
+.tech-stack i:hover {
+  transform: scale(1.2);
+  text-shadow: 0 0 12px #00e5ff;
+}
+
+.custom-tech {
+  padding: 6px 12px;
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  box-shadow: 0 0 8px rgba(0,229,255,0.5);
+}
+
+/* ===============================
+   TRON PERSECUTION BORDERS
+================================ */
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 30%,
+    var(--tron-color),
+    transparent 70%
+  );
+  background-size: 400% 400%;
+  animation: tron-run 4s linear infinite;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+@keyframes tron-run {
+  0%   { background-position:   0% 50%; }
+  25%  { background-position: 100% 50%; }
+  50%  { background-position: 100% 100%; }
+  75%  { background-position:   0% 100%; }
+  100% { background-position:   0% 50%; }
+}
+
+
+
+
+.card-red {
+  color: #ff4d4d;
+}
+
+.card-red h2 {
+  color: #ff6b6b;
+  border-bottom-color: #ff4d4d;
+}
+
+.card.card-red::before {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    #ff2d2d,
+    transparent
+  );
+}
+
+.card-yellow {
+  color: #ffd60a;
+}
+
+.card-yellow h2 {
+  color: #ffe66d;
+  border-bottom-color: #ffd60a;
+}
+
+.card.card-yellow::before {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    #ffd60a,
+    transparent
+  );
+}
+
+.card-red .tech-stack i {
+  color: #ff4d4d;
+  text-shadow: 0 0 10px #ff2d2d;
+}
+
+.card-yellow .tech-stack i {
+  color: #ffd60a;
+  text-shadow: 0 0 10px #ffd60a;
+}
+
+
+
+/* ===============================
+   TRON NAME EFFECT
+================================ */
+
+.tron-name {
+  font-size: 2.6rem;
+  letter-spacing: 4px;
+  color: #aefcff;
+  text-transform: uppercase;
+  position: relative;
+
+  text-shadow:
+    0 0 6px #00eaff,
+    0 0 12px #00eaff,
+    0 0 24px rgba(0, 234, 255, 0.8);
+
+  animation: tron-flicker 6s infinite;
+}
+
+/* Línea de escaneo */
+.tron-name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00eaff,
+    transparent
+  );
+  box-shadow: 0 0 12px #00eaff;
+  animation: tron-scan 3.5s linear infinite;
+  opacity: 0.8;
+}
+
+/* Barrido de luz */
+@keyframes tron-scan {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+/* Parpadeo sutil TRON */
+@keyframes tron-flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  52% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .tron-name {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+}
+
+.card-orange {
+  --tron-color: #ff9f1c;
+  color: #ffb347;
+  box-shadow: 0 0 18px rgba(255, 159, 28, 0.25);
+}
+
+/* Título naranja */
+.card-orange h2 {
+  color: #ffb347;
+  border-bottom-color: #ff9f1c;
+}
+
+/* Iconos tecnológicos en naranja */
+.card-orange .tech-stack i {
+  color: #ff9f1c;
+  text-shadow: 0 0 10px #ff9f1c;
+}
+
+/* Fondo interno ligeramente cálido */
+.card-orange::after {
+  background: rgba(20, 10, 0, 0.9);
+}
+
+.lang-switch {
+  margin-top: 15px;
+}
+
+.lang-switch button {
+  background: transparent;
+  border: 1px solid #00eaff;
+  color: #00eaff;
+  padding: 6px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  transition: 0.3s;
+}
+
+.lang-switch button:hover {
+  background: #00eaff;
+  color: black;
+  box-shadow: 0 0 10px #00eaff;
+}
+
+/* GALERÍA DE PROYECTOS */
+.project-gallery {
+  margin-top: 20px;
+}
+
+.carousel {
+  position: relative;
+  overflow: visible;
+  max-width: 500px;
+  margin: 0 auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+}
+
+/* Imágenes uniformes */
+.slide {
+  width: 100%;
+  height: auto;              /* 🔥 CLAVE */
+  display: none;
+  border-radius: 6px;
+  border: 2px solid #00eaff;
+  box-shadow:
+    0 0 6px #00eaff,
+    0 0 15px rgba(0, 234, 255, 0.6),
+    inset 0 0 6px rgba(0, 234, 255, 0.3);
+  border-radius: 8px;
+}
+
+.slide.logo {
+  object-fit: contain;
+  background: black;
+}
+
+.slide.active {
+  display: block;
+}
+
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #00eaff;
+  color: #00eaff;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 5;
+}
+
+.prev {
+  left: -38px;
+}
+
+.next {
+  right: -38px;
+}
+
+.carousel button:hover {
+  background: #00eaff;
+  color: black;
+}
