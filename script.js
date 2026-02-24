@@ -1,12 +1,3 @@
-/* Scroll reveal */
-document.addEventListener("scroll", () => {
-  document.querySelectorAll(".reveal").forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-      el.classList.add("active");
-    }
-  });
-});
-
 /* TRON Light Cycles Background */
 const canvas = document.getElementById("tron-bg");
 const ctx = canvas.getContext("2d");
@@ -49,6 +40,12 @@ class Cycle {
     ctx.lineTo(this.x, this.y);
     ctx.stroke();
 
+    // Efecto de estela (dibujar puntos adicionales para líneas más gruesas)
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 1, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+
     if (
       this.x < 0 || this.x > canvas.width ||
       this.y < 0 || this.y > canvas.height
@@ -62,10 +59,11 @@ class Cycle {
   }
 }
 
-const cycles = Array.from({ length: 25 }, () => new Cycle());
+const cycles = Array.from({ length: 30 }, () => new Cycle());
 
 function animate() {
-  ctx.fillStyle = "rgba(0,0,0,0.1)";
+  // Fondo con opacidad baja para crear efecto de persistencia
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   cycles.forEach(cycle => cycle.move());
@@ -75,30 +73,43 @@ function animate() {
 animate();
 
 /* ===============================
-   ACCORDION SYSTEM
+   ACCORDION SYSTEM - CORREGIDO
 ================================ */
 
 function initAccordion() {
+  console.log("Inicializando acordeón..."); // Para debug
   document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const targetId = header.getAttribute('data-target');
-      const content = document.getElementById(targetId);
-      
-      // Toggle active class on header
-      header.classList.toggle('active');
-      
-      // Toggle expanded class on content
-      content.classList.toggle('expanded');
-      
-      // Rotate icon
-      const icon = header.querySelector('.accordion-icon');
-      if (icon) {
-        icon.style.transform = content.classList.contains('expanded') 
-          ? 'rotate(180deg)' 
-          : 'rotate(0deg)';
-      }
-    });
+    // Remover event listeners anteriores para evitar duplicados
+    header.removeEventListener('click', handleAccordionClick);
+    header.addEventListener('click', handleAccordionClick);
   });
+}
+
+function handleAccordionClick(event) {
+  const header = event.currentTarget;
+  const targetId = header.getAttribute('data-target');
+  const content = document.getElementById(targetId);
+  
+  if (!content) {
+    console.error("No se encontró contenido para:", targetId);
+    return;
+  }
+  
+  // Toggle active class on header
+  header.classList.toggle('active');
+  
+  // Toggle expanded class on content
+  content.classList.toggle('expanded');
+  
+  // Rotate icon
+  const icon = header.querySelector('.accordion-icon');
+  if (icon) {
+    icon.style.transform = content.classList.contains('expanded') 
+      ? 'rotate(180deg)' 
+      : 'rotate(0deg)';
+  }
+  
+  console.log("Acordeón clickeado:", targetId, "expandido:", content.classList.contains('expanded'));
 }
 
 /* ===============================
@@ -277,22 +288,36 @@ function setLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
     if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
+      if (el.tagName === 'SPAN' || el.tagName === 'P' || el.tagName === 'LI' || el.tagName === 'H2' || el.tagName === 'H3') {
+        el.textContent = translations[lang][key];
+      } else {
+        // Para elementos que pueden contener HTML
+        el.innerHTML = translations[lang][key];
+      }
     }
   });
 }
 
 /* Detect saved language */
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM cargado, inicializando...");
   const savedLang = localStorage.getItem("lang") || "es";
   setLanguage(savedLang);
   initAccordion();
+  
+  // Asegurar que los carruseles sean visibles
+  document.querySelectorAll(".carousel").forEach(c => {
+    c.style.opacity = "1";
+  });
 });
 
 /* Carousel Function */
 function moveSlide(carouselId, direction) {
   const carousel = document.getElementById(carouselId);
+  if (!carousel) return;
+  
   const slides = carousel.querySelectorAll(".slide");
+  if (slides.length === 0) return;
 
   let activeIndex = 0;
 
@@ -311,8 +336,8 @@ function moveSlide(carouselId, direction) {
   slides[newIndex].classList.add("active");
 }
 
+// Reiniciar si hay algún problema con el acordeón después de cargar
 window.addEventListener("load", () => {
-  document.querySelectorAll(".carousel").forEach(c => {
-    c.style.opacity = "1";
-  });
+  console.log("Window loaded, verificando acordeón...");
+  initAccordion();
 });
