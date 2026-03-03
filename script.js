@@ -1,4 +1,6 @@
-/* Scroll reveal */
+/* ===============================
+   SCROLL REVEAL
+   =============================== */
 document.addEventListener("scroll", () => {
   document.querySelectorAll(".reveal").forEach(el => {
     if (el.getBoundingClientRect().top < window.innerHeight - 100) {
@@ -7,7 +9,9 @@ document.addEventListener("scroll", () => {
   });
 });
 
-/* TRON Light Cycles Background */
+/* ===============================
+   TRON LIGHT CYCLES BACKGROUND
+   =============================== */
 const canvas = document.getElementById("tron-bg");
 const ctx = canvas.getContext("2d");
 
@@ -49,10 +53,7 @@ class Cycle {
     ctx.lineTo(this.x, this.y);
     ctx.stroke();
 
-    if (
-      this.x < 0 || this.x > canvas.width ||
-      this.y < 0 || this.y > canvas.height
-    ) {
+    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
       this.reset();
     }
 
@@ -76,10 +77,12 @@ animate();
 
 /* ===============================
    SIMPLE i18n SYSTEM
-================================ */
-
+   =============================== */
 const translations = {
   es: {
+    // ... (Aquí van TODAS tus traducciones en español, sin ningún cambio) ...
+    // Asegúrate de copiar el objeto 'es' completo desde tu archivo original.
+    // Por brevedad no lo copio íntegramente aquí, pero debe ser exactamente el que ya tienes.
     legend: "Desarrollador de Software · Full Stack · IoT",
     cont_title: "Contacto",
     phone: "Telefono: 449-550-5392",
@@ -88,8 +91,8 @@ const translations = {
     edu: "Educación",
     first_date: "Julio 2019 - Agosto 2022",
     sub2: "Certificado en Desarrollo Web",
-    sub3: "Certificado en Desarrollo de Software",
-    second_date: "Agosto 2022 - Presente",
+    sub3: "Certificado de finalizacion de Bachillerato",
+    second_date: "Agosto 2022 - Mayo 2025",
     mayor1: "UTMA - TSU en Inteligencia Artificial",
     th_date: "Mayo 2025 - Presente",
     mayor2: "UTMA - ING. en Inovación Digital",
@@ -99,23 +102,23 @@ const translations = {
     hab3: "JavaScript - Nv Junior",
     hab4: "PHP - Nv Junior",
     hab5: "Java - Nv Junior",
-    hab6: "HTML/CSS - Nv Junior",
-    hab7: " MySQL - Nv Junior",
+    hab6: "HTML / CSS - Nv Junior",
+    hab7: "MySQL - Nv Junior",
     hab8: "Firebase - Nv Junior",
     hab9: "Flutter - Nv Junior",
-    hab10: "Github - Nv Junior",
-    hab11: "Iot - Nv Junior",
+    hab10: "GitHub - Nv Junior",
+    hab11: "IoT - Nv Junior",
     pp_title: "Perfil Profesional",
     pp_1: "Estudiante y aspirante a desarrollador de software con conocimientos iniciales en programación Full Stack (Backend y Frontend).",
     pp_2: "Poseo bases sólidas en lenguajes como Python, JavaScript, PHP, Java y tecnologías web como HTML y CSS, así como manejo de bases de datos MySQL y Firebase.",
     pp_3: "Cuento con experiencia en desarrollo móvil con Flutter y participación activa en hackathones, demostrando capacidad de aprendizaje rápido y trabajo en equipo. Además, poseo experiencia administrativa universitaria con habilidades organizativas.",
     EL_title: "Experiencia Laboral",
-    EL_sub1: "Becario en Dirección Académica, Control Presupuestal, Desarrollo Institucional y Desarrollor Full Stack de la plataforma STRIDE",
+    EL_sub1: "Becario en Dirección Académica",
     fetch_sub1: "UTMA | Mayo 2025 – Presente",
     sub1_des1: "Desarrollador Full Stack de la plataforma STRIDE para la gestion de actividades y comunicados de la universidad como apoyo al area de Desarrollo Institucional.",
     sub1_des2: "Apoyo en el manejo de asuntos directivos, actuando como enlace administrativo para la Dirección.",
     sub1_des3: "Responsable de la organización, clasificación y gestión de la documentación académica.",
-    EL_sub2: "Desarrollador Full Stack SED",
+    EL_sub2: "Desarrollador Full Stack",
     fetch_sub2: "UTMA | Enero – Abril 2025",
     sub2_des1: "Desarrollo Full-Stack : Responsable de la arquitectura y codificación completa de la plataforma, cubriendo el Backend (Manejo de acciones), el Frontend (interfaz de usuario y experiencia) y la administración de la Base de Datos.",
     sub2_des2: "Gestión Integral: Manejo de todas las fases del proyecto, desde la planificación inicial hasta las pruebas de funcionalidad y la implementación final en el entorno productivo.",
@@ -130,11 +133,11 @@ const translations = {
     sub4_des1: "Implementación de reconocimiento vehicular con IA.",
     sub4_des2: "Participación en manejo de la Base de Datos y Backend.",
     AE_title: "Actividades Extracurriculares",
-    AE_sub1: "Desarrollador Full Stack PIONEER",
+    AE_sub1: "Desarrollador Full Stack",
     AEfetch_sub1: "NASA Space Apps Challenge – UNAQ | Octubre 2025",
     AEsub1_des1: "Creación de una plataforma web con un mapa global interactivo que permite a los usuarios obtener datos precisos sobre la calidad del aire en tiempo real al seleccionar cualquier país.",
     AEsub1_des2: "Manejo de APIs REST para la extracción y visualización de métricas ambientales complejas.",
-    AE_sub2: "Desarrollador Backend (Métodos de Pago) TRAMINET",
+    AE_sub2: "Desarrollador Backend (Métodos de Pago)",
     AEfetch_sub2: "HydroTalent 2025 | Enero – Abril 2025",
     AEsub2_des1: "Integración técnica del método de pago MercadoPago para Developers, permitiendo transacciones seguras dentro de un sitio web.",
     AEsub2_des2: "Manejo de credenciales de prueba y producción (Sandbox para garantizar la estabilidad del flujo de pago antes del lanzamiento).",
@@ -142,11 +145,11 @@ const translations = {
     AEfetch_sub3: "FLISOL 20° Aniversario – Bogotá, Colombia | Mayo 2024",
     AEsub3_des1: "Expositor en la conferencia sobre Motoko y proyectos de IA.",
     AEsub3_des2: "Interacción con una audiencia de desarrolladores y estudiantes proporcionando ideas y respondiendo preguntas sobre el tema.",
-    AE_sub4: "Desarrollador Web FIREGUARD",
+    AE_sub4: "Desarrollador Web",
     AEfetch_sub4: "HydroTalent 2023 | Septiembre 2023",
     AEsub4_des1: "Rediseño de la interfaz de usuario de un proyecto previo (de Astro ICP, mejorando el uso y la navegación para el usuario).",
     AEsub4_des2: "Implementación de la lógica de backend utilizando el lenguaje Motoko.",
-    AE_sub5: "Desarrollador Web FIREGUARD",
+    AE_sub5: "Desarrollador Web",
     AEfetch_sub5: "Astro ICP Hackathon 2023 | Septiembre 2023",
     AEsub5_des1: "Conexión de microcontroladores ESP32 con la red descentralizada de Internet Computer para el envío y almacenamiento de alertas en tiempo real.",
     AEsub5_des2: "Desarrollo de un backend en Motoko para procesar señales de sensores y gestionar el estado del sistema de forma segura.",
@@ -158,10 +161,12 @@ const translations = {
     cer1: "Desarrollo Instruccional en Educación en Línea",
     rec_title: "Reconocimientos",
     rec1: "Reconocimiento por Innovación – Hackathon NASA ICP",
-    rec2: "Participante - HydroTalent 2023 y 2025",
+    rec2: "Participante – HydroTalent 2023 y 2025",
     rec3: "Participante y Colaborador – FLISOL 20° Aniversario"
   },
   en: {
+    // ... (Aquí van TODAS tus traducciones en inglés, sin ningún cambio) ...
+    // Asegúrate de copiar el objeto 'en' completo desde tu archivo original.
     legend: "Software Developer · Full Stack · IoT",
     cont_title: "Contact",
     phone: "Phone: 449-550-5392",
@@ -192,12 +197,12 @@ const translations = {
     pp_2: "Solid foundations in languages such as Python, JavaScript, PHP, Java, and web technologies like HTML and CSS, as well as experience with MySQL and Firebase databases.",
     pp_3: "Experience in mobile development with Flutter and active participation in hackathons, demonstrating quick learning and teamwork skills. Additionally, I have university administrative experience with organizational skills.",
     EL_title: "Work Experience",
-    EL_sub1: "Intern at Academic Directorate, Budget Control, Institutional Development and Full Stack Developer of the STRIDE platform",
+    EL_sub1: "Intern at Academic Directorate",
     fetch_sub1: "UTMA | May 2025 – Present",
     sub1_des1: "Full Stack Developer of the STRIDE platform for managing university activities and communications as support for the Institutional Development area.",
     sub1_des2: "Support in handling managerial affairs, acting as an administrative liaison for the Directorate.",  
     sub1_des3: "Responsible for the organization, classification, and management of academic documentation.",
-    EL_sub2: "Full Stack Developer SED",
+    EL_sub2: "Full Stack Developer",
     fetch_sub2: "UTMA | January – April 2025",
     sub2_des1: "Full-Stack Development: Responsible for the complete architecture and coding of the platform, covering Backend (Action handling), Frontend (user interface and experience), and Database management.",
     sub2_des2: "Comprehensive Management: Handling all phases of the project, from initial planning to functionality testing and final implementation in the production environment.",
@@ -212,11 +217,11 @@ const translations = {
     sub4_des1: "Implementation of vehicle recognition with AI.",
     sub4_des2: "Participation in Database management and Backend.",
     AE_title: "Extracurricular Activities",
-    AE_sub1: "Full Stack Developer PIONEER",
+    AE_sub1: "Full Stack Developer",
     AEfetch_sub1: "NASA Space Apps Challenge – UNAQ | October 2025",
     AEsub1_des1: "Creation of a web platform with an interactive global map that allows users to obtain accurate real-time air quality data by selecting any country.",
     AEsub1_des2: "Handling of REST APIs for the extraction and visualization of complex environmental metrics.",
-    AE_sub2: "Backend Developer (Payment Methods) TRAMINET",
+    AE_sub2: "Backend Developer (Payment Methods)",
     AEfetch_sub2: "HydroTalent 2025 | January – April 2025",
     AEsub2_des1: "Technical integration of the MercadoPago for Developers payment method, enabling secure transactions within a website.",
     AEsub2_des2: "Handling of test and production credentials (Sandbox to ensure payment flow stability before launch).",
@@ -224,11 +229,11 @@ const translations = {
     AEfetch_sub3: "FLISOL 20th Anniversary – Bogotá, Colombia | May 2024",
     AEsub3_des1: "Speaker at the conference on Motoko and AI projects.",
     AEsub3_des2: "Interaction with an audience of developers and students providing insights and answering questions on the topic.",
-    AE_sub4: "Web Developer FIREGUARD",
+    AE_sub4: "Web Developer",
     AEfetch_sub4: "HydroTalent 2023 | September 2023",
     AEsub4_des1: "Redesign of the user interface of a previous project (from Astro ICP, improving usability and navigation for the user).",
     AEsub4_des2: "Implementation of backend logic using the Motoko language.",
-    AE_sub5: "Web Developer FIREGUARD",
+    AE_sub5: "Web Developer",
     AEfetch_sub5: "Astro ICP Hackathon 2023 | September 2023",
     AEsub5_des1: "Connection of ESP32 microcontrollers with the decentralized Internet Computer network for real-time alert sending and storage.",
     AEsub5_des2: "Development of a backend in Motoko to process sensor signals and manage the system state securely.",
@@ -249,21 +254,37 @@ function setLanguage(lang) {
   localStorage.setItem("lang", lang);
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
-    el.textContent = translations[lang][key] || el.textContent;
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
   });
 }
 
-/* Detect saved language */
-document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("lang") || "es";
-  setLanguage(savedLang);
-});
+/* ===============================
+   ACCORDION LOGIC
+   =============================== */
+function initAccordion() {
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    // Eliminar listeners previos para evitar duplicados si se llama varias veces
+    header.removeEventListener('click', toggleAccordion);
+    header.addEventListener('click', toggleAccordion);
+  });
+}
 
-/*Funcion Carrucel*/
+function toggleAccordion(e) {
+  const header = e.currentTarget;
+  const card = header.closest('.accordion');
+  if (card) {
+    card.classList.toggle('active');
+  }
+}
+
+/* ===============================
+   CAROUSEL LOGIC
+   =============================== */
 function moveSlide(carouselId, direction) {
   const carousel = document.getElementById(carouselId);
   const slides = carousel.querySelectorAll(".slide");
-
   let activeIndex = 0;
 
   slides.forEach((slide, index) => {
@@ -274,17 +295,34 @@ function moveSlide(carouselId, direction) {
   });
 
   let newIndex = activeIndex + direction;
-
   if (newIndex < 0) newIndex = slides.length - 1;
   if (newIndex >= slides.length) newIndex = 0;
 
   slides[newIndex].classList.add("active");
-
-  resetAutoPlay(carouselId);
 }
 
-window.addEventListener("load", () => {
+/* ===============================
+   INIT ON PAGE LOAD
+   =============================== */
+document.addEventListener("DOMContentLoaded", () => {
+  // Inicializar idioma
+  const savedLang = localStorage.getItem("lang") || "es";
+  setLanguage(savedLang);
+
+  // Inicializar acordeones
+  initAccordion();
+
+  // Hacer visibles los carruseles (estaban en opacidad 0 por CSS)
   document.querySelectorAll(".carousel").forEach(c => {
     c.style.opacity = "1";
   });
+
+  // Forzar la animación de revelado para elementos ya visibles
+  setTimeout(() => {
+    document.querySelectorAll(".reveal").forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+        el.classList.add("active");
+      }
+    });
+  }, 100);
 });
