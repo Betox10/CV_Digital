@@ -256,15 +256,12 @@ function toggleAccordion(e) {
   const currentHeader = e.currentTarget;
   const currentCard = currentHeader.closest('.accordion');
   
-  // Si el acordeón clickeado ya está activo, solo lo cerramos
   if (currentCard.classList.contains('active')) {
     currentCard.classList.remove('active');
   } else {
-    // Si NO está activo, primero cerramos todos los acordeones...
     document.querySelectorAll('.accordion').forEach(card => {
       card.classList.remove('active');
     });
-    // ...y luego abrimos el que se clickeó
     currentCard.classList.add('active');
   }
 }
