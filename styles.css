@@ -398,3 +398,76 @@ ul {
   background: #00eaff;
   color: black;
 }
+
+/* ... (Mantén todo tu CSS existente aquí) ... */
+
+/* ===============================
+   ESTILOS PARA EL ACORDEÓN
+   =============================== */
+
+/* El header del acordeón (título + icono) es clickeable */
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none; /* Evita que se seleccione el texto al hacer doble clic */
+}
+
+/* El título h2 dentro del header no necesita borde inferior, 
+   pero si quieres mantenerlo, se verá bien. Lo dejamos como está.
+   El icono de flecha */
+.accordion-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  color: var(--tron-color, #00eaff); /* Usa el color TRON por defecto */
+}
+
+/* Cuando el acordeón está activo (abierto), la flecha rota */
+.accordion.active .accordion-icon {
+  transform: rotate(90deg);
+}
+
+/* Contenido del acordeón - oculto por defecto */
+.accordion .accordion-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, opacity 0.4s ease-out, margin 0.3s ease;
+  margin-top: 0;
+}
+
+/* Contenido del acordeón - cuando está activo (abierto) */
+.accordion.active .accordion-content {
+  max-height: 2000px; /* Un valor muy grande para que quepa todo el contenido */
+  opacity: 1;
+  margin-top: 15px; /* Espacio entre el título y el contenido */
+  transition: max-height 0.6s ease-in, opacity 0.5s ease-in, margin-top 0.3s ease;
+}
+
+/* Ajuste para que las tarjetas estáticas no tengan el cursor de pointer */
+.static-card {
+  cursor: default;
+}
+
+/* Pequeño margen para el contenido estático, igual que el del acordeón */
+.static-content {
+  margin-top: 15px;
+}
+
+/* Asegurar que las tarjetas con acordeón tengan el cursor por defecto en el contenido */
+.accordion .accordion-content {
+  cursor: default;
+}
+
+/* Ajustes para la animación de aparición (reveal) - sigue funcionando */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
