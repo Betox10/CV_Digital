@@ -116,15 +116,15 @@ const translations = {
     
     // Experiencia Laboral - Descripciones (PRIMERA PERSONA)
     stride_des1: "Lideré el desarrollo full-stack de STRIDE, plataforma institucional para gestión académica, actualmente en producción en Hostinger.",
-    stride_des2: "Implementé frontend con React.js y backend con Node.js, integrando Firebase para autenticación y base de datos.",
-    stride_des3: "Actué como enlace técnico-administrativo, traduciendo necesidades institucionales en soluciones tecnológicas.",
+    stride_des2: "Implementé frontend con React.js y backend con Node.js, almacenado en un repositorio de Github para su implementación.",
+    stride_des3: "Ayudé a la implementación de servicios tecnológicos dentro de la universidad.",
     
     sed_des1: "Diseñé y desarrollé desde cero el Sistema de Evaluación Docente (SED) para UTMA.",
     sed_des2: "Stack: PHP (backend), MySQL (BD), HTML5/CSS3/JavaScript (frontend).",
     sed_des3: "Gestioné todo el ciclo de vida: análisis, modelado, desarrollo, pruebas y despliegue en Hostinger.",
     
     cafinca_des1: "Desarrollé extensiones de software para sistema embebido en cafetera automatizada con Python.",
-    cafinca_des2: "Fui responsable del mantenimiento preventivo y correctivo del equipo.",
+    cafinca_des2: "Fui parte del equipo responsable del mantenimiento preventivo y correctivo del equipo.",
     cafinca_des3: "Participé en reuniones técnicas con stakeholders.",
     
     campestre_des1: "Implementé sistema de reconocimiento vehicular con IA usando Python y OpenCV.",
@@ -144,12 +144,12 @@ const translations = {
     
     // Actividades Extracurriculares - Descripciones (PRIMERA PERSONA)
     nasa_des1: "Desarrollé plataforma web con mapa interactivo global para visualizar calidad del aire en tiempo real.",
-    nasa_des2: "Integré múltiples APIs REST para consumo de datos ambientales.",
+    nasa_des2: "Integré una API REST para consumo de datos ambientales.",
     
     hydro25_des1: "Integré MercadoPago como pasarela de pagos en plataforma web.",
-    hydro25_des2: "Configuré entornos sandbox y producción, manejando webhooks y credenciales.",
+    hydro25_des2: "Configuré entornos sandbox, manejando credenciales de prueba.",
     
-    flisol_des1: "Fui seleccionado como expositor en evento de software libre más importante de Latinoamérica.",
+    flisol_des1: "Fui seleccionado como expositor en evento de software libre de Latinoamérica.",
     flisol_des2: "Impartí conferencia sobre Motoko e Internet Computer Protocol (ICP) aplicados a IA.",
     
     fire_des1: "Desarrollé sistema de detección temprana de incendios con ESP32 e ICP blockchain.",
@@ -221,15 +221,15 @@ const translations = {
     
     // Work Experience - Descriptions (FIRST PERSON)
     stride_des1: "I led full-stack development of STRIDE, institutional platform for academic management, currently in production on Hostinger.",
-    stride_des2: "I implemented frontend with React.js and backend with Node.js, integrating Firebase for authentication and database.",
-    stride_des3: "I acted as technical-administrative liaison, translating institutional needs into technological solutions.",
+    stride_des2: "I implemented the frontend with React.js and the backend with Node.js, stored in a GitHub repository for implementation.",
+    stride_des3: "I assisted in the implementation of technological services within the university.",
     
     sed_des1: "I designed and developed the Teacher Evaluation System (SED) from scratch for UTMA.",
     sed_des2: "Stack: PHP (backend), MySQL (DB), HTML5/CSS3/JavaScript (frontend).",
     sed_des3: "I managed the entire lifecycle: analysis, modeling, development, testing, and deployment on Hostinger.",
     
     cafinca_des1: "I developed software extensions for embedded system in automated coffee machine with Python.",
-    cafinca_des2: "I was responsible for preventive and corrective equipment maintenance.",
+    cafinca_des2: "I was part of the team responsible for preventive and corrective maintenance of the equipment.",
     cafinca_des3: "I participated in technical meetings with stakeholders.",
     
     campestre_des1: "I implemented vehicle recognition system with AI using Python and OpenCV.",
@@ -249,12 +249,12 @@ const translations = {
     
     // Extracurricular Activities - Descriptions (FIRST PERSON)
     nasa_des1: "I developed web platform with interactive global map to visualize real-time air quality.",
-    nasa_des2: "I integrated multiple REST APIs for environmental data consumption.",
+    nasa_des2: "I integrated a REST API for environmental data consumption.",
     
     hydro25_des1: "I integrated MercadoPago as payment gateway in web platform.",
-    hydro25_des2: "I configured sandbox and production environments, handling webhooks and credentials.",
+    hydro25_des2: "I set up sandbox environments, managing test credentials..",
     
-    flisol_des1: "I was selected as speaker at the most important free software event in Latin America.",
+    flisol_des1: "I was selected as a speaker at a free software event in Latin America.",
     flisol_des2: "I gave a conference on Motoko and Internet Computer Protocol (ICP) applied to AI.",
     
     fire_des1: "I developed early fire detection system with ESP32 and ICP blockchain.",
