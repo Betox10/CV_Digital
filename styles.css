@@ -404,3 +404,143 @@ ul {
 .accordion .accordion-content {
   cursor: default;
 }
+
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .row-top {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .row-middle {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .col-left, .col-right {
+    width: 100%;
+  }
+  
+  .cv-container {
+    padding: 15px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .header-content {
+    padding: 20px 10px;
+  }
+  
+  .tron-name {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .card {
+    padding: 15px;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+  }
+  
+  h3 {
+    font-size: 1rem;
+  }
+  
+  .tech-stack i {
+    font-size: 24px;
+  }
+  
+  .carousel button {
+    padding: 4px 8px;
+    font-size: 16px;
+  }
+  
+  .prev {
+    left: -25px;
+  }
+  
+  .next {
+    right: -25px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 400px) {
+  .tron-name {
+    font-size: 1.2rem;
+  }
+  
+  .accordion-header h2 {
+    font-size: 1rem;
+  }
+  
+  .tech-stack {
+    gap: 8px;
+  }
+  
+  .tech-stack i {
+    font-size: 20px;
+  }
+}
+
+/* ===============================
+   MEJORAS VISUALES
+   =============================== */
+
+/* Efecto glass morphism más suave */
+.card {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 234, 255, 0.2);
+}
+
+/* Hover en cards */
+.card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.3s ease;
+}
+
+/* Línea de tiempo en experiencia */
+.experience-item {
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid #00eaff;
+  margin-bottom: 30px;
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Personalización de scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00eaff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ffff;
+}
