@@ -103,8 +103,18 @@ const translations = {
     // Perfil Profesional
     pp_title: "Perfil Profesional",
     
-    // Experiencia Laboral (PRIMERA PERSONA)
+    // Experiencia Laboral - Títulos
     EL_title: "Experiencia Laboral",
+    EL_sub1: "Becario en Dirección Académica",
+    fetch_sub1: "UTMA | Mayo 2025 – Presente",
+    EL_sub2: "Desarrollador Full Stack SED",
+    fetch_sub2: "UTMA | Enero – Abril 2025",
+    EL_sub3: "Desarrollador Backend",
+    fetch_sub3: "CAFINCA | Abril – Noviembre 2024",
+    EL_sub4: "Desarrollador Web",
+    fetch_sub4: "Club Campestre Aguascalientes | Abril – Agosto 2024",
+    
+    // Experiencia Laboral - Descripciones (PRIMERA PERSONA)
     stride_des1: "Lideré el desarrollo full-stack de STRIDE, plataforma institucional para gestión académica, actualmente en producción en Hostinger.",
     stride_des2: "Implementé frontend con React.js y backend con Node.js, integrando Firebase para autenticación y base de datos.",
     stride_des3: "Actué como enlace técnico-administrativo, traduciendo necesidades institucionales en soluciones tecnológicas.",
@@ -120,8 +130,19 @@ const translations = {
     campestre_des1: "Implementé sistema de reconocimiento vehicular con IA usando Python y OpenCV.",
     campestre_des2: "Desarrollé backend y gestión de base de datos MySQL para registro de accesos.",
     
-    // Actividades Extracurriculares (PRIMERA PERSONA)
+    // Actividades Extracurriculares - Títulos
     AE_title: "Actividades Extracurriculares",
+    AE_sub1: "Desarrollador Full Stack PIONEER",
+    AEfetch_sub1: "NASA Space Apps Challenge – UNAQ | Octubre 2025",
+    AE_sub2: "Desarrollador Backend (Métodos de Pago) TRAMINET",
+    AEfetch_sub2: "HydroTalent 2025 | Enero – Abril 2025",
+    AE_sub3: "Expositor",
+    AEfetch_sub3: "FLISOL 20° Aniversario – Bogotá, Colombia | Mayo 2024",
+    AE_sub5: "Desarrollador Web FIREGUARD",
+    AEfetch_sub5: "Astro ICP Hackathon 2023 | Septiembre 2023",
+    AEsub5_des3: "Creación de una interfaz web básica que notifica la detección de fuego o humo, dando una respuesta rápida ante emergencias.",
+    
+    // Actividades Extracurriculares - Descripciones (PRIMERA PERSONA)
     nasa_des1: "Desarrollé plataforma web con mapa interactivo global para visualizar calidad del aire en tiempo real.",
     nasa_des2: "Integré múltiples APIs REST para consumo de datos ambientales.",
     
@@ -187,8 +208,18 @@ const translations = {
     // Professional Profile
     pp_title: "Professional Profile",
     
-    // Work Experience (FIRST PERSON)
+    // Work Experience - Titles
     EL_title: "Work Experience",
+    EL_sub1: "Intern at Academic Directorate",
+    fetch_sub1: "UTMA | May 2025 – Present",
+    EL_sub2: "Full Stack Developer SED",
+    fetch_sub2: "UTMA | January – April 2025",
+    EL_sub3: "Backend Developer",
+    fetch_sub3: "CAFINCA | April – November 2024",
+    EL_sub4: "Web Developer",
+    fetch_sub4: "Club Campestre Aguascalientes | April – August 2024",
+    
+    // Work Experience - Descriptions (FIRST PERSON)
     stride_des1: "I led full-stack development of STRIDE, institutional platform for academic management, currently in production on Hostinger.",
     stride_des2: "I implemented frontend with React.js and backend with Node.js, integrating Firebase for authentication and database.",
     stride_des3: "I acted as technical-administrative liaison, translating institutional needs into technological solutions.",
@@ -204,8 +235,19 @@ const translations = {
     campestre_des1: "I implemented vehicle recognition system with AI using Python and OpenCV.",
     campestre_des2: "I developed backend and MySQL database management for access records.",
     
-    // Extracurricular Activities (FIRST PERSON)
+    // Extracurricular Activities - Titles
     AE_title: "Extracurricular Activities",
+    AE_sub1: "Full Stack Developer PIONEER",
+    AEfetch_sub1: "NASA Space Apps Challenge – UNAQ | October 2025",
+    AE_sub2: "Backend Developer (Payment Methods) TRAMINET",
+    AEfetch_sub2: "HydroTalent 2025 | January – April 2025",
+    AE_sub3: "Speaker",
+    AEfetch_sub3: "FLISOL 20th Anniversary – Bogotá, Colombia | May 2024",
+    AE_sub5: "Web Developer FIREGUARD",
+    AEfetch_sub5: "Astro ICP Hackathon 2023 | September 2023",
+    AEsub5_des3: "Creation of a basic web interface that notifies the detection of fire or smoke, providing a quick response to emergencies.",
+    
+    // Extracurricular Activities - Descriptions (FIRST PERSON)
     nasa_des1: "I developed web platform with interactive global map to visualize real-time air quality.",
     nasa_des2: "I integrated multiple REST APIs for environmental data consumption.",
     
