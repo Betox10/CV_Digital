@@ -139,7 +139,7 @@ const translations = {
     AE_sub3: "Expositor",
     AEfetch_sub3: "FLISOL 20° Aniversario – Bogotá, Colombia | Mayo 2024",
     AE_sub5: "Desarrollador Web FIREGUARD",
-    AEfetch_sub5: "Astro ICP Hackathon 2023 | Septiembre 2023",
+    AEfetch_sub5: "Astro ICP Hackathon 2023 | Septiembre 2023 y Hydrotalent 2023",
     AEsub5_des3: "Creación de una interfaz web básica que notifica la detección de fuego o humo, dando una respuesta rápida ante emergencias.",
     
     // Actividades Extracurriculares - Descripciones (PRIMERA PERSONA)
@@ -244,7 +244,7 @@ const translations = {
     AE_sub3: "Speaker",
     AEfetch_sub3: "FLISOL 20th Anniversary – Bogotá, Colombia | May 2024",
     AE_sub5: "Web Developer FIREGUARD",
-    AEfetch_sub5: "Astro ICP Hackathon 2023 | September 2023",
+    AEfetch_sub5: "Astro ICP Hackathon 2023 | September 2023 and Hydrotalent 2023",
     AEsub5_des3: "Creation of a basic web interface that notifies the detection of fire or smoke, providing a quick response to emergencies.",
     
     // Extracurricular Activities - Descriptions (FIRST PERSON)
