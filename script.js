@@ -63,15 +63,20 @@ function animate() {
 animate();
 
 /* ===============================
-   SIMPLE i18n SYSTEM
+   i18n SYSTEM - PRIMERA PERSONA
    =============================== */
 const translations = {
-  es: { /* ... (Mantén aquí tu objeto de traducción en español COMPLETO) ... */ 
+  es: {
+    // Header
     legend: "Desarrollador de Software · Full Stack · IoT",
+    
+    // Contacto
     cont_title: "Contacto",
-    phone: "Teléfono: 449-550-5392",
-    mail: "Email: lazarox2004@gmail.com",
-    ubi: "Ubicación: Aguascalientes, México",
+    phone: "449-550-5392",
+    mail: "lazarox2004@gmail.com",
+    ubi: "Aguascalientes, México",
+    
+    // Educación
     edu: "Educación",
     first_date: "Julio 2019 - Agosto 2022",
     sub2: "Certificado en Desarrollo Web",
@@ -80,154 +85,152 @@ const translations = {
     mayor1: "UTMA - TSU en Inteligencia Artificial",
     th_date: "Mayo 2025 - Presente",
     mayor2: "UTMA - ING. en Innovación Digital",
+    
+    // Habilidades
     hab_title: "Habilidades",
     hab1: "Inglés - Nivel Intermedio B1",
-    hab2: "Python - Nv Junior",
-    hab3: "JavaScript - Nv Junior",
-    hab4: "PHP - Nv Junior",
-    hab5: "Java - Nv Junior",
-    hab6: "HTML / CSS - Nv Junior",
-    hab7: "MySQL - Nv Junior",
-    hab8: "Firebase - Nv Junior",
-    hab9: "Flutter - Nv Junior",
-    hab10: "GitHub - Nv Junior",
-    hab11: "IoT - Nv Junior",
+    hab2: "Python - Nivel Junior",
+    hab3: "JavaScript - Nivel Junior",
+    hab4: "PHP - Nivel Junior",
+    hab5: "Java - Nivel Junior",
+    hab6: "HTML / CSS - Nivel Junior",
+    hab7: "MySQL - Nivel Junior",
+    hab8: "Firebase - Nivel Junior",
+    hab9: "Flutter - Nivel Junior",
+    hab10: "GitHub - Nivel Junior",
+    hab11: "IoT - Nivel Junior",
+    
+    // Perfil Profesional
     pp_title: "Perfil Profesional",
-    pp_1: "Estudiante y aspirante a desarrollador de software con conocimientos iniciales en programación Full Stack (Backend y Frontend).",
-    pp_2: "Poseo bases sólidas en lenguajes como Python, JavaScript, PHP, Java y tecnologías web como HTML y CSS, así como manejo de bases de datos MySQL y Firebase.",
-    pp_3: "Cuento con experiencia en desarrollo móvil con Flutter y participación activa en hackathones, demostrando capacidad de aprendizaje rápido y trabajo en equipo. Además, poseo experiencia administrativa universitaria con habilidades organizativas.",
+    
+    // Experiencia Laboral (PRIMERA PERSONA)
     EL_title: "Experiencia Laboral",
-    EL_sub1: "Becario en Dirección Académica",
-    fetch_sub1: "UTMA | Mayo 2025 – Presente",
-    sub1_des1: "Desarrollador Full Stack de la plataforma STRIDE para la gestión de actividades y comunicados de la universidad como apoyo al área de Desarrollo Institucional.",
-    sub1_des2: "Apoyo en el manejo de asuntos directivos, actuando como enlace administrativo para la Dirección.",
-    sub1_des3: "Responsable de la organización, clasificación y gestión de la documentación académica.",
-    EL_sub2: "Desarrollador Full Stack SED",
-    fetch_sub2: "UTMA | Enero – Abril 2025",
-    sub2_des1: "Desarrollo Full-Stack: Responsable de la arquitectura y codificación completa de la plataforma, cubriendo el Backend (Manejo de acciones), el Frontend (interfaz de usuario y experiencia) y la administración de la Base de Datos.",
-    sub2_des2: "Gestión Integral: Manejo de todas las fases del proyecto, desde la planificación inicial hasta las pruebas de funcionalidad y la implementación final en el entorno productivo.",
-    sub2_des3: "Resultados y Función: La plataforma fue diseñada para la evaluación docente de la institución, cumpliendo con su objetivo.",
-    EL_sub3: "Desarrollador Backend",
-    fetch_sub3: "CAFINCA | Abril – Noviembre 2024",
-    sub3_des1: "Participación en el desarrollo de una extensión al sistema de una cafetera automatizada.",
-    sub3_des2: "Encargado del mantenimiento del equipo.",
-    sub3_des3: "Participación en reuniones con los encargados de la empresa.",
-    EL_sub4: "Desarrollador Web",
-    fetch_sub4: "Club Campestre Aguascalientes | Abril – Agosto 2024",
-    sub4_des1: "Implementación de reconocimiento vehicular con IA.",
-    sub4_des2: "Participación en manejo de la Base de Datos y Backend.",
+    stride_des1: "Lideré el desarrollo full-stack de STRIDE, plataforma institucional para gestión académica, actualmente en producción en Hostinger.",
+    stride_des2: "Implementé frontend con React.js y backend con Node.js, integrando Firebase para autenticación y base de datos.",
+    stride_des3: "Actué como enlace técnico-administrativo, traduciendo necesidades institucionales en soluciones tecnológicas.",
+    
+    sed_des1: "Diseñé y desarrollé desde cero el Sistema de Evaluación Docente (SED) para UTMA.",
+    sed_des2: "Stack: PHP (backend), MySQL (BD), HTML5/CSS3/JavaScript (frontend).",
+    sed_des3: "Gestioné todo el ciclo de vida: análisis, modelado, desarrollo, pruebas y despliegue en Hostinger.",
+    
+    cafinca_des1: "Desarrollé extensiones de software para sistema embebido en cafetera automatizada con Python.",
+    cafinca_des2: "Fui responsable del mantenimiento preventivo y correctivo del equipo.",
+    cafinca_des3: "Participé en reuniones técnicas con stakeholders.",
+    
+    campestre_des1: "Implementé sistema de reconocimiento vehicular con IA usando Python y OpenCV.",
+    campestre_des2: "Desarrollé backend y gestión de base de datos MySQL para registro de accesos.",
+    
+    // Actividades Extracurriculares (PRIMERA PERSONA)
     AE_title: "Actividades Extracurriculares",
-    AE_sub1: "Desarrollador Full Stack PIONEER",
-    AEfetch_sub1: "NASA Space Apps Challenge – UNAQ | Octubre 2025",
-    AEsub1_des1: "Creación de una plataforma web con un mapa global interactivo que permite a los usuarios obtener datos precisos sobre la calidad del aire en tiempo real al seleccionar cualquier país.",
-    AEsub1_des2: "Manejo de APIs REST para la extracción y visualización de métricas ambientales complejas.",
-    AE_sub2: "Desarrollador Backend (Métodos de Pago) TRAMINET",
-    AEfetch_sub2: "HydroTalent 2025 | Enero – Abril 2025",
-    AEsub2_des1: "Integración técnica del método de pago MercadoPago para Developers, permitiendo transacciones seguras dentro de un sitio web.",
-    AEsub2_des2: "Manejo de credenciales de prueba y producción (Sandbox para garantizar la estabilidad del flujo de pago antes del lanzamiento).",
-    AE_sub3: "Expositor",
-    AEfetch_sub3: "FLISOL 20° Aniversario – Bogotá, Colombia | Mayo 2024",
-    AEsub3_des1: "Expositor en la conferencia sobre Motoko y proyectos de IA.",
-    AEsub3_des2: "Interacción con una audiencia de desarrolladores y estudiantes proporcionando ideas y respondiendo preguntas sobre el tema.",
-    AE_sub4: "Desarrollador Web FIREGUARD",
-    AEfetch_sub4: "HydroTalent 2023 | Septiembre 2023",
-    AEsub4_des1: "Rediseño de la interfaz de usuario de un proyecto previo (de Astro ICP, mejorando el uso y la navegación para el usuario).",
-    AEsub4_des2: "Implementación de la lógica de backend utilizando el lenguaje Motoko.",
-    AE_sub5: "Desarrollador Web FIREGUARD",
-    AEfetch_sub5: "Astro ICP Hackathon 2023 | Septiembre 2023",
-    AEsub5_des1: "Conexión de microcontroladores ESP32 con la red descentralizada de Internet Computer para el envío y almacenamiento de alertas en tiempo real.",
-    AEsub5_des2: "Desarrollo de un backend en Motoko para procesar señales de sensores y gestionar el estado del sistema de forma segura.",
-    AEsub5_des3: "Creación de una interfaz web básica que notifica la detección de fuego o humo, dando una respuesta rápida ante emergencias.",
+    nasa_des1: "Desarrollé plataforma web con mapa interactivo global para visualizar calidad del aire en tiempo real.",
+    nasa_des2: "Integré múltiples APIs REST para consumo de datos ambientales.",
+    
+    hydro25_des1: "Integré MercadoPago como pasarela de pagos en plataforma web.",
+    hydro25_des2: "Configuré entornos sandbox y producción, manejando webhooks y credenciales.",
+    
+    flisol_des1: "Fui seleccionado como expositor en evento de software libre más importante de Latinoamérica.",
+    flisol_des2: "Impartí conferencia sobre Motoko e Internet Computer Protocol (ICP) aplicados a IA.",
+    
+    fire_des1: "Desarrollé sistema de detección temprana de incendios con ESP32 e ICP blockchain.",
+    fire_des2: "Implementé backend en Motoko, frontend web y conectividad con sensores.",
+    
+    // Logros
     Log_title: "Logros",
-    Log1: "Primer Lugar – Astro ICP Hackathon (Sector Medio Ambiente).",
-    Log2: "Primer Lugar – HydroTalent 2023.",
+    Log1: "Primer Lugar – Astro ICP Hackathon",
+    Log2: "Primer Lugar – HydroTalent 2023",
+    
+    // Certificaciones
     Cer_title: "Certificaciones",
     cer1: "Desarrollo Instruccional en Educación en Línea",
+    
+    // Reconocimientos
     rec_title: "Reconocimientos",
     rec1: "Reconocimiento por Innovación – Hackathon NASA ICP",
     rec2: "Participante – HydroTalent 2023 y 2025",
     rec3: "Participante y Colaborador – FLISOL 20° Aniversario"
   },
-  en: { /* ... (Mantén aquí tu objeto de traducción en inglés COMPLETO) ... */
+  
+  en: {
+    // Header
     legend: "Software Developer · Full Stack · IoT",
+    
+    // Contact
     cont_title: "Contact",
-    phone: "Phone: 449-550-5392",
-    mail: "Email: lazarox2004@gmail.com",
-    ubi: "Location: Aguascalientes, Mexico",
+    phone: "449-550-5392",
+    mail: "lazarox2004@gmail.com",
+    ubi: "Aguascalientes, Mexico",
+    
+    // Education
     edu: "Education",
     first_date: "July 2019 - August 2022",
     sub2: "Certificate in Web Development",
-    sub3: "Certificate in Software Development",
-    second_date: "August 2022 - Present",
+    sub3: "High School Diploma",
+    second_date: "August 2022 - May 2025",
     mayor1: "UTMA - TSU in Artificial Intelligence",
     th_date: "May 2025 - Present",
     mayor2: "UTMA - ING. in Digital Innovation",
+    
+    // Skills
     hab_title: "Skills",
     hab1: "English - Intermediate B1",
-    hab2: "Python - Nv Junior",
-    hab3: "JavaScript - Nv Junior",
-    hab4: "PHP - Nv Junior",
-    hab5: "Java - Nv Junior",
-    hab6: "HTML/CSS - Nv Junior",
-    hab7: " MySQL - Nv Junior",
-    hab8: "Firebase - Nv Junior",
-    hab9: "Flutter - Nv Junior",
-    hab10: "Github - Nv Junior",
-    hab11: "Iot - Nv Junior",
+    hab2: "Python - Junior Level",
+    hab3: "JavaScript - Junior Level",
+    hab4: "PHP - Junior Level",
+    hab5: "Java - Junior Level",
+    hab6: "HTML / CSS - Junior Level",
+    hab7: "MySQL - Junior Level",
+    hab8: "Firebase - Junior Level",
+    hab9: "Flutter - Junior Level",
+    hab10: "GitHub - Junior Level",
+    hab11: "IoT - Junior Level",
+    
+    // Professional Profile
     pp_title: "Professional Profile",
-    pp_1: "Student and aspiring software developer with foundational knowledge in Full Stack programming (Backend and Frontend).",
-    pp_2: "Solid foundations in languages such as Python, JavaScript, PHP, Java, and web technologies like HTML and CSS, as well as experience with MySQL and Firebase databases.",
-    pp_3: "Experience in mobile development with Flutter and active participation in hackathons, demonstrating quick learning and teamwork skills. Additionally, I have university administrative experience with organizational skills.",
+    
+    // Work Experience (FIRST PERSON)
     EL_title: "Work Experience",
-    EL_sub1: "Intern at Academic Directorate",
-    fetch_sub1: "UTMA | May 2025 – Present",
-    sub1_des1: "Full Stack Developer of the STRIDE platform for managing university activities and communications as support for the Institutional Development area.",
-    sub1_des2: "Support in handling managerial affairs, acting as an administrative liaison for the Directorate.",  
-    sub1_des3: "Responsible for the organization, classification, and management of academic documentation.",
-    EL_sub2: "Full Stack Developer SED",
-    fetch_sub2: "UTMA | January – April 2025",
-    sub2_des1: "Full-Stack Development: Responsible for the complete architecture and coding of the platform, covering Backend (Action handling), Frontend (user interface and experience), and Database management.",
-    sub2_des2: "Comprehensive Management: Handling all phases of the project, from initial planning to functionality testing and final implementation in the production environment.",
-    sub2_des3: "Results and Function: The platform was designed for the institution's teacher evaluation, fulfilling its purpose.",
-    EL_sub3: "Backend Developer",
-    fetch_sub3: "CAFINCA | April – November 2024",
-    sub3_des1: "Participation in the development of an extension to the system of an automated coffee maker.",
-    sub3_des2: "In charge of equipment maintenance.",
-    sub3_des3: "Participation in meetings with company managers.",
-    EL_sub4: "Web Developer",
-    fetch_sub4: "Club Campestre Aguascalientes | April – August 2024",
-    sub4_des1: "Implementation of vehicle recognition with AI.",
-    sub4_des2: "Participation in Database management and Backend.",
+    stride_des1: "I led full-stack development of STRIDE, institutional platform for academic management, currently in production on Hostinger.",
+    stride_des2: "I implemented frontend with React.js and backend with Node.js, integrating Firebase for authentication and database.",
+    stride_des3: "I acted as technical-administrative liaison, translating institutional needs into technological solutions.",
+    
+    sed_des1: "I designed and developed the Teacher Evaluation System (SED) from scratch for UTMA.",
+    sed_des2: "Stack: PHP (backend), MySQL (DB), HTML5/CSS3/JavaScript (frontend).",
+    sed_des3: "I managed the entire lifecycle: analysis, modeling, development, testing, and deployment on Hostinger.",
+    
+    cafinca_des1: "I developed software extensions for embedded system in automated coffee machine with Python.",
+    cafinca_des2: "I was responsible for preventive and corrective equipment maintenance.",
+    cafinca_des3: "I participated in technical meetings with stakeholders.",
+    
+    campestre_des1: "I implemented vehicle recognition system with AI using Python and OpenCV.",
+    campestre_des2: "I developed backend and MySQL database management for access records.",
+    
+    // Extracurricular Activities (FIRST PERSON)
     AE_title: "Extracurricular Activities",
-    AE_sub1: "Full Stack Developer PIONEER",
-    AEfetch_sub1: "NASA Space Apps Challenge – UNAQ | October 2025",
-    AEsub1_des1: "Creation of a web platform with an interactive global map that allows users to obtain accurate real-time air quality data by selecting any country.",
-    AEsub1_des2: "Handling of REST APIs for the extraction and visualization of complex environmental metrics.",
-    AE_sub2: "Backend Developer (Payment Methods) TRAMINET",
-    AEfetch_sub2: "HydroTalent 2025 | January – April 2025",
-    AEsub2_des1: "Technical integration of the MercadoPago for Developers payment method, enabling secure transactions within a website.",
-    AEsub2_des2: "Handling of test and production credentials (Sandbox to ensure payment flow stability before launch).",
-    AE_sub3: "Speaker",
-    AEfetch_sub3: "FLISOL 20th Anniversary – Bogotá, Colombia | May 2024",
-    AEsub3_des1: "Speaker at the conference on Motoko and AI projects.",
-    AEsub3_des2: "Interaction with an audience of developers and students providing insights and answering questions on the topic.",
-    AE_sub4: "Web Developer FIREGUARD",
-    AEfetch_sub4: "HydroTalent 2023 | September 2023",
-    AEsub4_des1: "Redesign of the user interface of a previous project (from Astro ICP, improving usability and navigation for the user).",
-    AEsub4_des2: "Implementation of backend logic using the Motoko language.",
-    AE_sub5: "Web Developer FIREGUARD",
-    AEfetch_sub5: "Astro ICP Hackathon 2023 | September 2023",
-    AEsub5_des1: "Connection of ESP32 microcontrollers with the decentralized Internet Computer network for real-time alert sending and storage.",
-    AEsub5_des2: "Development of a backend in Motoko to process sensor signals and manage the system state securely.",
-    AEsub5_des3: "Creation of a basic web interface that notifies the detection of fire or smoke, providing a quick response to emergencies.",
+    nasa_des1: "I developed web platform with interactive global map to visualize real-time air quality.",
+    nasa_des2: "I integrated multiple REST APIs for environmental data consumption.",
+    
+    hydro25_des1: "I integrated MercadoPago as payment gateway in web platform.",
+    hydro25_des2: "I configured sandbox and production environments, handling webhooks and credentials.",
+    
+    flisol_des1: "I was selected as speaker at the most important free software event in Latin America.",
+    flisol_des2: "I gave a conference on Motoko and Internet Computer Protocol (ICP) applied to AI.",
+    
+    fire_des1: "I developed early fire detection system with ESP32 and ICP blockchain.",
+    fire_des2: "I implemented backend in Motoko, web frontend, and sensor connectivity.",
+    
+    // Achievements
     Log_title: "Achievements",
-    Log1: "First Place – Astro ICP Hackathon (Environment Sector).",
-    Log2: "First Place – HydroTalent 2023.",
+    Log1: "First Place – Astro ICP Hackathon",
+    Log2: "First Place – HydroTalent 2023",
+    
+    // Certifications
     Cer_title: "Certifications",
     cer1: "Instructional Development in Online Education",
+    
+    // Recognitions
     rec_title: "Recognitions",
     rec1: "Recognition for Innovation – NASA ICP Hackathon",
-    rec2: "Participant - HydroTalent 2023 and 2025",
+    rec2: "Participant – HydroTalent 2023 and 2025",
     rec3: "Participant and Collaborator – FLISOL 20th Anniversary"
   }
 };
