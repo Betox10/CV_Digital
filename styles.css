@@ -46,8 +46,8 @@ body {
 /* FILAS */
 .row-top {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 20px;
+  grid-template-columns: 280px 1fr 280px; /* Wider sidebars so texts don't cut off */
+  gap: 25px;
 }
 
 .row-bottom {
@@ -81,13 +81,12 @@ body {
 /* TITULOS */
 h2 {
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   color: #00ffff;
-  border-bottom: 1px solid #00eaff;
-  padding-bottom: 10px;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
 }
 
 h3 {
@@ -97,7 +96,7 @@ h3 {
 
 /* LISTAS */
 p {
-  font-size: 1.1rem; /* Aumentado ligeramente para llenar mejor los espacios */
+  font-size: 1.15rem; /* Aumentado para llenar mejor el espacio y verse más profesional */
   line-height: 1.6;
   margin-bottom: 15px;
   text-align: left;
@@ -610,41 +609,130 @@ ul {
 /* ===============================
    ESTILOS PARA EL ACORDEÓN
    =============================== */
-.accordion-header {
+.accordion-header, 
+.static-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center text to look like a button */
   align-items: center;
+  text-align: center;
   cursor: pointer;
   user-select: none;
+  border-bottom: 2px solid rgba(0, 234, 255, 0.4);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  border-bottom: 2px solid #00eaff;
+  text-shadow: 0 0 10px #00eaff;
+}
+
+.static-header {
+  cursor: default; /* En perfil no hay clic */
+}
+.static-header:hover {
+  text-shadow: none; /* No hover effect on static */
 }
 
 .accordion-icon {
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-  color: var(--tron-color, #00eaff);
-}
-
-.accordion.active .accordion-icon {
-  transform: rotate(90deg);
+  display: none; /* Hide arrows since click opens modal now */
 }
 
 .accordion .accordion-content {
-  max-height: 0;
+  display: none; /* Hide content entirely from cards */
+}
+
+/* ===============================
+   ESTILOS PARA EL MODAL POPUP
+   =============================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease-out, opacity 0.4s ease-out, margin 0.3s ease;
-  margin-top: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 20px;
 }
 
-.accordion.active .accordion-content {
-  max-height: 5000px; /* Aumentado drásticamente para evitar cortes */
+.modal-overlay.active {
   opacity: 1;
-  margin-top: 15px;
-  transition: max-height 0.8s ease-in, opacity 0.5s ease-in, margin-top 0.3s ease;
+  pointer-events: auto;
 }
 
-.static-card {
-  cursor: default;
+.modal-content-box {
+  width: 100%;
+  max-width: 900px;
+  max-height: 85vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 8px;
+  background: rgba(10, 10, 10, 0.95);
+  border: 2px solid #00eaff;
+  box-shadow: 0 0 25px rgba(0, 234, 255, 0.3);
+  padding: 30px;
+  position: relative;
+}
+
+/* Tron Custom Scrollbar para Modal */
+.modal-content-box::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-content-box::-webkit-scrollbar-track {
+  background: rgba(0, 234, 255, 0.1);
+}
+.modal-content-box::-webkit-scrollbar-thumb {
+  background: #00eaff;
+  border-radius: 4px;
+}
+
+.modal-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid rgba(0, 234, 255, 0.5);
+  padding-bottom: 15px;
+}
+
+.modal-header-top h2 {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: #ff2d2d;
+  font-size: 2.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: text-shadow 0.3s ease, transform 0.2s;
+}
+
+.modal-close-btn:hover {
+  text-shadow: 0 0 15px #ff2d2d;
+  transform: scale(1.1);
+}
+
+.modal-overlay .accordion-content {
+  display: block; /* Visible ONLY when moved to modal */
+  animation: modalFadeUp 0.4s ease forwards;
+}
+
+@keyframes modalFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .static-content {

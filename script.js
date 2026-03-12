@@ -102,6 +102,9 @@ const translations = {
     
     // Perfil Profesional
     pp_title: "Perfil Profesional",
+    pp_des1: "Desarrollador Full Stack con experiencia en entornos de producción real. He desarrollado y desplegado 2 sistemas institucionales (STRIDE y SED) actualmente operativos para UTMA, utilizando React, PHP y MySQL.",
+    pp_des2: "Como desarrollador autodidacta, he creado aplicaciones móviles con Flutter, proyectos de IoT con ESP32 integrados con blockchain (Internet Computer Protocol) y APIs REST con Node.js. Participante activo en hackathones internacionales con 2 primeros lugares y reconocimiento Galactic Problem Solver de la NASA.",
+    pp_des3: "Stack tecnológico:",
     
     // Experiencia Laboral - Títulos
     EL_title: "Experiencia Laboral",
@@ -172,6 +175,7 @@ const translations = {
     
     // Proyectos Personales
     PP_title: "Proyectos Personales",
+    tech_label: "Tecnologías:",
     paper_title: "App: Paperman",
     paper_tech: "Flutter · Dart · Mobile Development",
     paper_des1: "Desarrollé una aplicación móvil optimizada con el framework Flutter.",
@@ -179,7 +183,7 @@ const translations = {
     paper_des3: "Gestión de estados profesional y diseño responsivo para dispositivos Android/iOS.",
     
     tron_title: "Portafolio Digital TRON",
-    tron_tech: "HTML · CSS · JavaScript · i18n · Hostinger",
+    tron_tech: "HTML · CSS · JavaScript · i18n · GitHub",
     tron_des1: "Diseñé y desarrollé CV/portafolio con estética TRON (neón, grid, animaciones).",
     tron_des2: "Implementé sistema de idiomas español/inglés (i18n) y acordeones interactivos.",
     tron_des3: "Publicado en: Hostinger (producción real)."
@@ -221,6 +225,9 @@ const translations = {
     
     // Professional Profile
     pp_title: "Professional Profile",
+    pp_des1: "Full Stack Developer with experience in real-world production environments. I have developed and deployed 2 institutional systems (STRIDE and SED) currently operational for UTMA, using React, PHP, and MySQL.",
+    pp_des2: "As a self-taught developer, I have created mobile applications with Flutter, IoT projects with ESP32 integrated with blockchain (Internet Computer Protocol), and REST APIs with Node.js. Active participant in international hackathons with 2 first places and NASA's Galactic Problem Solver recognition.",
+    pp_des3: "Tech Stack:",
     
     // Work Experience - Titles
     EL_title: "Work Experience",
@@ -291,6 +298,7 @@ const translations = {
     
     // Personal Projects
     PP_title: "Personal Projects",
+    tech_label: "Technologies:",
     paper_title: "App: Paperman",
     paper_tech: "Flutter · Dart · Mobile Development",
     paper_des1: "I developed an optimized mobile application with the Flutter framework.",
@@ -298,7 +306,7 @@ const translations = {
     paper_des3: "Professional state management and responsive design for Android/iOS devices.",
     
     tron_title: "TRON Digital Portfolio",
-    tron_tech: "HTML · CSS · JavaScript · i18n · Hostinger",
+    tron_tech: "HTML · CSS · JavaScript · i18n · GitHub",
     tron_des1: "I designed and developed a CV/portfolio with TRON aesthetics (neon, grid, animations).",
     tron_des2: "I implemented a Spanish/English language system (i18n) and interactive accordions.",
     tron_des3: "Published on: Hostinger (real production)."
@@ -343,27 +351,72 @@ function setLanguage(lang) {
 }
 
 /* ===============================
-   ACCORDION LOGIC
+   MODAL LOGIC
    =============================== */
+let currentModalSource = null;
+
 function initAccordion() {
   document.querySelectorAll('.accordion-header').forEach(header => {
-    header.removeEventListener('click', toggleAccordion);
-    header.addEventListener('click', toggleAccordion);
+    header.removeEventListener('click', openModal);
+    header.addEventListener('click', openModal);
   });
+  
+  const modalOverlay = document.getElementById("globalModal");
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", (e) => {
+      // Si se hace clic en el área oscura (fuera de la caja)
+      if (e.target === modalOverlay) closeModal();
+    });
+  }
 }
 
-function toggleAccordion(e) {
-  const currentHeader = e.currentTarget;
-  const currentCard = currentHeader.closest('.accordion');
+function openModal(e) {
+  const header = e.currentTarget;
+  const parentCard = header.closest('.accordion');
+  const content = parentCard.querySelector('.accordion-content');
+  const titleEl = header.querySelector('h2');
   
-  if (currentCard.classList.contains('active')) {
-    currentCard.classList.remove('active');
-  } else {
-    document.querySelectorAll('.accordion').forEach(card => {
-      card.classList.remove('active');
-    });
-    currentCard.classList.add('active');
+  if (!content) return;
+  
+  const modal = document.getElementById("globalModal");
+  const modalBody = document.getElementById("modalBody");
+  const modalTitle = document.getElementById("modalTitle");
+  
+  // Clonar el título para mantener los atributos de idioma y estilo
+  modalTitle.innerHTML = titleEl.innerHTML;
+  if(titleEl.hasAttribute("data-i18n")) {
+      modalTitle.setAttribute("data-i18n", titleEl.getAttribute("data-i18n"));
   }
+  
+  currentModalSource = parentCard;
+  
+  // Se mueve el contenido para no romper listeners de carrusel
+  modalBody.appendChild(content);
+  
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden"; // Desactivar scroll principal
+  
+  // Reajustar tamaño de carruseles si hay
+  setTimeout(() => {
+    modal.querySelectorAll(".carousel").forEach(adjustCarouselHeight);
+  }, 100);
+}
+
+window.closeModal = function() {
+  const modal = document.getElementById("globalModal");
+  const modalBody = document.getElementById("modalBody");
+  
+  if (currentModalSource) {
+    const content = modalBody.querySelector('.accordion-content');
+    if (content) {
+      // Retornar contenido a su tarjeta original
+      currentModalSource.appendChild(content);
+    }
+  }
+  
+  currentModalSource = null;
+  modal.classList.remove("active");
+  document.body.style.overflow = "auto"; // Reactivar scroll principal
 }
 
 /* ===============================

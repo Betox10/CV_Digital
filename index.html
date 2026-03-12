@@ -81,16 +81,18 @@
     <section class="col-center-top">
       <!-- PERFIL PROFESIONAL (SIN ACORDEÓN) -->
       <section class="card static-card">
-        <h2 data-i18n="pp_title">Perfil Profesional</h2>
+        <div class="static-header">
+          <h2 data-i18n="pp_title">Perfil Profesional</h2>
+        </div>
         <div class="static-content">
-          <p style="margin-bottom: 15px; line-height: 1.6;">
+          <p data-i18n="pp_des1">
             <strong>Desarrollador Full Stack</strong> con experiencia en <strong>entornos de producción real</strong>. He desarrollado y desplegado <strong>2 sistemas institucionales</strong> (STRIDE y SED) actualmente operativos para UTMA, utilizando React, PHP y MySQL.
           </p>
-          <p style="margin-bottom: 15px; line-height: 1.6;">
+          <p data-i18n="pp_des2">
             Como <strong>desarrollador autodidacta</strong>, he creado aplicaciones móviles con <strong>Flutter</strong>, proyectos de <strong>IoT con ESP32</strong> integrados con blockchain (Internet Computer Protocol) y APIs REST con Node.js. Participante activo en <strong>hackathones internacionales</strong> con <strong>2 primeros lugares</strong> y reconocimiento <strong>Galactic Problem Solver</strong> de la NASA.
           </p>
-          <p style="line-height: 1.6;">
-            <strong>Stack tecnológico:</strong> React.js · Flutter · PHP · Node.js · Python · MySQL · Firebase · ESP32 · Git · Hostinger
+          <p>
+            <strong data-i18n="pp_des3">Stack tecnológico:</strong> React.js · Flutter · PHP · Node.js · Python · MySQL · Firebase · ESP32 · Git · Hostinger
           </p>
         </div>
       </section>
@@ -386,7 +388,7 @@
         <div class="project-item">
           <div class="project-info">
             <h3 style="color: #00eaff;" data-i18n="paper_title">App: Paperman</h3>
-            <p><strong data-i18n="paper_tech">Tecnologías:</strong> Flutter · Dart · Mobile Development</p>
+            <p><strong data-i18n="tech_label">Tecnologías:</strong> <span data-i18n="paper_tech">Flutter · Dart · Mobile Development</span></p>
             <ul>
               <li data-i18n="paper_des1">Desarrollé una aplicación móvil optimizada con el framework Flutter.</li>
               <li data-i18n="paper_des2">Implementé una interfaz intuitiva y dinámica utilizando el lenguaje Dart.</li>
@@ -422,7 +424,7 @@
         <div class="project-item">
           <div class="project-info">
         <h3 style="color: #00eaff; margin-top: 35px;" data-i18n="tron_title">Portafolio Digital TRON</h3>
-        <p><strong data-i18n="tron_tech">Tecnologías:</strong> HTML · CSS · JavaScript · i18n · Hostinger</p>
+        <p><strong data-i18n="tech_label">Tecnologías:</strong> <span data-i18n="tron_tech">HTML · CSS · JavaScript · i18n · GitHub</span></p>
         <ul>
           <li data-i18n="tron_des1">Diseñé y desarrollé CV/portafolio con estética TRON (neón, grid, animaciones).</li>
           <li data-i18n="tron_des2">Implementé sistema de idiomas español/inglés (i18n) y acordeones interactivos.</li>
@@ -443,8 +445,18 @@
       </div>
     </section>
   </div>
-
 </main>
+
+<!-- GLOBAL MODAL OVERLAY -->
+<div id="globalModal" class="modal-overlay">
+  <div class="modal-content-box">
+    <div class="modal-header-top">
+      <h2 id="modalTitle">Título</h2>
+      <button class="modal-close-btn" onclick="closeModal()">×</button>
+    </div>
+    <div id="modalBody"></div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
