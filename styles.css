@@ -28,6 +28,11 @@ body {
   background: rgba(0, 0, 0, 0.85);
 }
 
+.header p {
+  text-align: center !important; /* Asegurar que el subtítulo esté centrado */
+  margin-top: 10px;
+}
+
 /* CONTENEDOR PRINCIPAL */
 .cv-container {
   max-width: 1400px;
@@ -62,21 +67,27 @@ body {
 /* TARJETAS */
 .card {
   border: 1px;
-  padding: 20px;
+  padding: 24px; /* Padding moderado y profesional */
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(4px);
   box-shadow: 0 0 18px rgba(0, 234, 255, 0.15);
   --tron-color: #00eaff;
   position: relative;
   overflow: hidden;
+  text-align: left;
+  width: 100%; /* Asegurar que ocupe todo el espacio de la columna */
 }
 
 /* TITULOS */
 h2 {
   margin-top: 0;
+  margin-bottom: 20px;
   color: #00ffff;
   border-bottom: 1px solid #00eaff;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 h3 {
@@ -85,8 +96,16 @@ h3 {
 }
 
 /* LISTAS */
+p {
+  font-size: 1rem; /* Regreso a tamaño original que se veía bien */
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
 ul {
-  padding-left: 18px;
+  padding-left: 20px;
+  text-align: left;
 }
 
 /* RESPONSIVE */
@@ -116,11 +135,61 @@ ul {
 
 .custom-tech {
   padding: 6px 12px;
-  border: 1px solid #00e5ff;
-  color: #00e5ff;
+  border: 1px solid #00eaff;
+  color: #00eaff;
   font-size: 0.8rem;
   letter-spacing: 1px;
   box-shadow: 0 0 8px rgba(0,229,255,0.5);
+}
+
+/* LISTADOS (POR DEFECTO UNA COLUMNA Y TEXTO GRANDE) */
+.accordion-content ul {
+  display: block;
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.accordion-content ul li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 1rem; /* Tamaño estándar original */
+  line-height: 1.5;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.accordion-content ul li::before {
+  content: "»";
+  position: absolute;
+  left: 0;
+  color: #00eaff;
+  font-weight: bold;
+}
+
+/* SOLO ITEMS MUY CORTOS (HABILIDADES, CERTIFICACIONES) EN 2 COLUMNAS */
+.skills-list,
+.card-yellow .accordion-content ul {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.skills-list li {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+  background: rgba(0, 234, 255, 0.05);
+  border-left: 3px solid #00eaff;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .skills-list, .accordion-content ul:not(.skills-list) {
+    grid-template-columns: 1fr; /* Una columna en móviles */
+  }
 }
 
 /* ===============================
@@ -289,72 +358,184 @@ ul {
 }
 
 /* ===============================
-   GALERÍA DE PROYECTOS
+   GALERÍA DE PROYECTOS (FUTURISTA)
 ================================ */
 .project-gallery {
-  margin-top: 20px;
+  margin-top: 25px;
+  perspective: 1000px;
 }
 
 .carousel {
   position: relative;
-  overflow: visible;
-  max-width: 500px;
-  margin: 0 auto;
+  max-width: 550px;
+  margin: 30px auto; /* Aumentado margen para dar espacio a botones externos */
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
+  padding: 10px;
+  background: rgba(0, 234, 255, 0.03);
+  border: 1px solid rgba(0, 234, 255, 0.1);
+  border-radius: 8px;
+  overflow: visible !important; /* CRÍTICO para que se vean los botones */
 }
 
 .carousel-track {
   position: relative;
   width: 100%;
+  min-height: 200px; /* Evitar que colapse si no hay imagen */
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  border: 2px solid #00eaff;
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.3);
+  overflow: hidden;
 }
 
 .slide {
   width: 100%;
-  height: auto;
-  display: none;
+  height: auto; /* Regreso al tamaño natural */
+  display: none; /* Regreso a la lógica original de visibilidad */
   border-radius: 6px;
-  border: 2px solid #00eaff;
-  box-shadow:
-    0 0 6px #00eaff,
-    0 0 15px rgba(0, 234, 255, 0.6),
-    inset 0 0 6px rgba(0, 234, 255, 0.3);
-  border-radius: 8px;
-}
-
-.slide.logo {
-  object-fit: contain;
-  background: black;
+  filter: saturate(1) brightness(1);
 }
 
 .slide.active {
   display: block;
+  animation: slideFadeIn 0.4s ease-out;
 }
 
+@keyframes slideFadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.slide.logo {
+  padding: 30px;
+  background: radial-gradient(circle, rgba(0, 234, 255, 0.1) 0%, black 70%);
+}
+
+/* Efecto de Escaneo Holográfico */
+.carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 234, 255, 0.05) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0.3;
+}
+
+.carousel-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00eaff, transparent);
+  box-shadow: 0 0 15px #00eaff;
+  z-index: 4;
+  animation: carousel-scan 4s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes carousel-scan {
+  0% { top: 0%; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Esquinas Neon (Targeting Reticle) */
+.carousel-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00eaff;
+  z-index: 5;
+  filter: drop-shadow(0 0 5px #00eaff);
+}
+
+.corner-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.corner-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+.corner-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+.corner-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+/* Cargando / Progreso de Slide */
+.carousel-loader {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: #00eaff;
+  box-shadow: 0 0 10px #00eaff;
+  z-index: 6;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.slide.logo {
+  object-fit: contain !important;
+  background: radial-gradient(circle, rgba(0, 234, 255, 0.1) 0%, black 70%);
+}
+
+/* Botones de Navegación Mejorados */
 .carousel button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   border: 1px solid #00eaff;
   color: #00eaff;
-  padding: 6px 12px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  font-size: 20px;
-  z-index: 5;
+  font-size: 24px;
+  z-index: 10;
+  transition: 0.3s;
+  clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+  backdrop-filter: blur(4px);
 }
 
-.prev {
-  left: -38px;
+.prev { left: -55px; }
+.next { right: -55px; }
+
+/* Asegurar que el contenido del acordeón no corte los botones */
+.accordion-content {
+  overflow: visible !important;
+  padding: 10px 0; /* Eliminado el padding lateral excesivo de 60px */
 }
 
-.next {
-  right: -38px;
+/* Solo aplicar el espacio extra para botones donde hay una galería */
+.project-gallery {
+  position: relative;
+  padding: 0 50px; /* Margen local solo para la zona del carrusel */
+  margin-top: 25px;
 }
 
 .carousel button:hover {
   background: #00eaff;
+  box-shadow: 0 0 25px #00eaff;
   color: black;
+  transform: translateY(-50%) scale(1.15);
+}
+
+@media (max-width: 700px) {
+  .prev { left: 5px; }
+  .next { right: 5px; }
+  .carousel button {
+    background: rgba(0, 0, 0, 0.4);
+    width: 35px;
+    height: 35px;
+  }
 }
 
 /* ===============================
@@ -387,10 +568,10 @@ ul {
 }
 
 .accordion.active .accordion-content {
-  max-height: 2000px;
+  max-height: 5000px; /* Aumentado drásticamente para evitar cortes */
   opacity: 1;
   margin-top: 15px;
-  transition: max-height 0.6s ease-in, opacity 0.5s ease-in, margin-top 0.3s ease;
+  transition: max-height 0.8s ease-in, opacity 0.5s ease-in, margin-top 0.3s ease;
 }
 
 .static-card {

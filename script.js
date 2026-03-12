@@ -312,25 +312,79 @@ function toggleAccordion(e) {
 }
 
 /* ===============================
-   CAROUSEL LOGIC
+   CAROUSEL LOGIC (FUTURISTA)
    =============================== */
+function initCarousels() {
+  document.querySelectorAll(".carousel").forEach(carousel => {
+    // Inyectar elementos decorativos si no existen
+    if (!carousel.querySelector(".carousel-scanline")) {
+      const scanline = document.createElement("div");
+      scanline.className = "carousel-scanline";
+      carousel.appendChild(scanline);
+
+      const corners = ["tl", "tr", "bl", "br"];
+      corners.forEach(pos => {
+        const corner = document.createElement("div");
+        corner.className = `carousel-corner corner-${pos}`;
+        carousel.appendChild(corner);
+      });
+      
+      // Añadir indicador de carga / progreso visual
+      const loader = document.createElement("div");
+      loader.className = "carousel-loader";
+      carousel.appendChild(loader);
+
+      // Inicializar progreso
+      const slides = carousel.querySelectorAll(".slide");
+      let activeIdx = 0;
+      slides.forEach((s, i) => { if(s.classList.contains("active")) activeIdx = i; });
+      loader.style.width = `${((activeIdx + 1) / slides.length) * 100}%`;
+    }
+
+    // Efecto de aparición suave
+    setTimeout(() => {
+      carousel.style.opacity = "1";
+    }, 300);
+  });
+}
+
 function moveSlide(carouselId, direction) {
   const carousel = document.getElementById(carouselId);
   const slides = carousel.querySelectorAll(".slide");
-  let activeIndex = 0;
+  let activeIndex = -1;
 
   slides.forEach((slide, index) => {
     if (slide.classList.contains("active")) {
       activeIndex = index;
-      slide.classList.remove("active");
     }
   });
 
+  if (activeIndex === -1) activeIndex = 0;
+
+  // Quitar active de la actual
+  slides[activeIndex].classList.remove("active");
+
+  // Calcular nueva
   let newIndex = activeIndex + direction;
   if (newIndex < 0) newIndex = slides.length - 1;
   if (newIndex >= slides.length) newIndex = 0;
 
+  // Forzar un reflow para que la transición se note si fuera necesario
+  // (aunque con clases basta)
   slides[newIndex].classList.add("active");
+
+  // Actualizar barra de progreso
+  const loader = carousel.querySelector(".carousel-loader");
+  if (loader) {
+    const progress = ((newIndex + 1) / slides.length) * 100;
+    loader.style.width = `${progress}%`;
+  }
+
+  // Pequeño efecto de "glitch" visual al cambiar (opcional)
+  carousel.style.filter = "hue-rotate(90deg) brightness(1.5)";
+  setTimeout(() => {
+    carousel.style.filter = "none";
+  }, 100);
 }
 
 /* ===============================
@@ -340,8 +394,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const savedLang = localStorage.getItem("lang") || "es";
   setLanguage(savedLang);
   initAccordion();
-
-  document.querySelectorAll(".carousel").forEach(c => {
-    c.style.opacity = "1";
-  });
+  initCarousels();
 });
