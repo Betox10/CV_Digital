@@ -152,20 +152,13 @@ ul {
 
 .accordion-content ul li {
   position: relative;
-  padding-left: 20px;
   font-size: 1.05rem; /* Proporcional a los párrafos */
   line-height: 1.5;
   margin-bottom: 10px;
   text-align: left;
 }
 
-.accordion-content ul li::before {
-  content: "»";
-  position: absolute;
-  left: 0;
-  color: #00eaff;
-  font-weight: bold;
-}
+/* Borrado símbolo ">>" a petición del usuario */
 
 /* SOLO ITEMS MUY CORTOS (HABILIDADES, CERTIFICACIONES) EN 2 COLUMNAS */
 .skills-list,
