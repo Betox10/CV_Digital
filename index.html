@@ -184,7 +184,7 @@
           </div>
 
           <div class="project-gallery">
-            <div class="carousel" id="apiCarousel">
+            <div class="carousel carousel-landscape" id="apiCarousel">
               <button class="prev" onclick="moveSlide('apiCarousel', -1)">‹</button>
               <div class="carousel-track">
                 <img src="assets/STRIDE/STRIDE WITHE LETTERS.png" class="slide logo">
@@ -213,7 +213,7 @@
           </div>
 
           <div class="project-gallery">
-            <div class="carousel" id="sedCarousel">
+            <div class="carousel carousel-landscape" id="sedCarousel">
               <button class="prev" onclick="moveSlide('sedCarousel', -1)">‹</button>
               <div class="carousel-track">
                 <img src="assets/SED/sed1.png" class="slide active">
@@ -253,7 +253,7 @@
           </div>
 
           <div class="project-gallery">
-            <div class="carousel" id="campCarousel">
+            <div class="carousel carousel-landscape" id="campCarousel">
               <button class="prev" onclick="moveSlide('campCarousel', -1)">‹</button>
               <div class="carousel-track">
                 <img src="assets/CAMP/camp1.png" class="slide active">
@@ -295,7 +295,7 @@
           </div>
 
           <div class="project-gallery">
-            <div class="carousel" id="pionCarousel">
+            <div class="carousel carousel-landscape" id="pionCarousel">
               <button class="prev" onclick="moveSlide('pionCarousel', -1)">‹</button>
               <div class="carousel-track">
                 <img src="assets/PION/pion1.png" class="slide active">
@@ -320,7 +320,7 @@
           </div>
 
           <div class="project-gallery">
-            <div class="carousel" id="tramCarousel">
+            <div class="carousel carousel-landscape" id="tramCarousel">
               <button class="prev" onclick="moveSlide('tramCarousel', -1)">‹</button>
               <div class="carousel-track">
                 <img src="assets/TRAM/tram1.png" class="slide active">
@@ -359,7 +359,7 @@
           </div>
 
           <div class="project-gallery">
-            <div class="carousel" id="fireguardCarousel">
+            <div class="carousel carousel-landscape" id="fireguardCarousel">
               <button class="prev" onclick="moveSlide('fireguardCarousel', -1)">‹</button>
               <div class="carousel-track">
                 <img src="assets/FIREGUARD/fir1.png" class="slide active">
@@ -375,71 +375,69 @@
     </section>
   </div> <!-- Cierra fila inferior -->
 
-  <!-- NUEVA FILA - PROYECTOS PERSONALES -->
   <div class="row-projects">
     <section class="card accordion" style="grid-column: 1 / -1;">
       <div class="accordion-header">
-        <h2>Proyectos Personales</h2>
+        <h2 data-i18n="PP_title">Proyectos Personales</h2>
         <span class="accordion-icon">▶</span>
       </div>
       <div class="accordion-content">
-
-        <!-- EJEMPLO 1: App Flutter -->
-        <h3 style="color: #00eaff;">App: Control de Gastos Personales</h3>
-        <p><strong>Tecnologías:</strong> Flutter · Firebase · GetX</p>
-        <ul>
-          <li>Desarrollé aplicación móvil multiplataforma (Android/iOS) para gestión de finanzas personales.</li><br>
-          <li>Implementé autenticación con Firebase y base de datos en tiempo real.</li><br>
-          <li>Características: registro de ingresos/gastos, categorización, gráficas estadísticas.</li><br>
-          <li><strong>Estado:</strong> En desarrollo activo.</li>
-        </ul>
-        <div class="tech-stack">
-          <i class="devicon-flutter-plain" title="Flutter"></i>
-          <i class="devicon-firebase-plain" title="Firebase"></i>
-          <i class="devicon-github-original" title="GitHub"></i>
+ 
+        <div class="project-item">
+          <div class="project-info">
+            <h3 style="color: #00eaff;" data-i18n="paper_title">App: Paperman</h3>
+            <p><strong data-i18n="paper_tech">Tecnologías:</strong> Flutter · Dart · Mobile Development</p>
+            <ul>
+              <li data-i18n="paper_des1">Desarrollé una aplicación móvil optimizada con el framework Flutter.</li>
+              <li data-i18n="paper_des2">Implementé una interfaz intuitiva y dinámica utilizando el lenguaje Dart.</li>
+              <li data-i18n="paper_des3">Gestión de estados profesional y diseño responsivo para dispositivos Android/iOS.</li>
+            </ul>
+            <div class="tech-stack">
+              <i class="devicon-flutter-plain" title="Flutter"></i>
+              <i class="devicon-dart-plain" title="Dart"></i>
+              <i class="devicon-github-original" title="GitHub"></i>
+            </div>
+          </div>
+          <div class="project-side-gallery">
+          <div class="carousel carousel-portrait" id="paperCarousel">
+            <button class="prev" onclick="moveSlide('paperCarousel', -1)">‹</button>
+            <div class="carousel-track">
+              <img src="assets/PAPER/0.png" class="slide active">
+              <img src="assets/PAPER/1.jpeg" class="slide">
+              <img src="assets/PAPER/2.jpeg" class="slide">
+              <img src="assets/PAPER/3.jpeg" class="slide">
+              <img src="assets/PAPER/4.jpeg" class="slide">
+              <img src="assets/PAPER/5.jpeg" class="slide">
+              <img src="assets/PAPER/6.jpeg" class="slide">
+              <img src="assets/PAPER/7.jpeg" class="slide">
+              <img src="assets/PAPER/8.jpeg" class="slide">
+              <img src="assets/PAPER/9.jpeg" class="slide">
+            </div>
+            <button class="next" onclick="moveSlide('paperCarousel', 1)">›</button>
+            </div>
+          </div>
         </div>
 
-        <!-- EJEMPLO 2: Dashboard IoT -->
-        <h3 style="color: #00eaff; margin-top: 25px;">Dashboard IoT: Monitoreo de Sensores</h3>
-        <p><strong>Tecnologías:</strong> Flutter · ESP32 · Firebase · MQTT</p>
+        <!-- PROYECTO 2: Portafolio TRON -->
+        <div class="project-item">
+          <div class="project-info">
+        <h3 style="color: #00eaff; margin-top: 35px;" data-i18n="tron_title">Portafolio Digital TRON</h3>
+        <p><strong data-i18n="tron_tech">Tecnologías:</strong> HTML · CSS · JavaScript · i18n · Hostinger</p>
         <ul>
-          <li>Creé app Flutter que visualiza datos de sensores ESP32 en tiempo real.</li><br>
-          <li>Implementé conexión MQTT y almacenamiento histórico en Firebase Firestore.</li><br>
-          <li>Configuré alertas ante eventos críticos (temperatura, humedad, movimiento).</li>
+          <li data-i18n="tron_des1">Diseñé y desarrollé CV/portafolio con estética TRON (neón, grid, animaciones).</li>
+          <li data-i18n="tron_des2">Implementé sistema de idiomas español/inglés (i18n) y acordeones interactivos.</li>
+          <li data-i18n="tron_des3"><strong>Publicado en:</strong> Hostinger (producción real).</li>
         </ul>
-        <div class="tech-stack">
-          <i class="devicon-flutter-plain"></i>
-          <i class="devicon-arduino-plain" title="ESP32"></i>
-          <i class="devicon-firebase-plain"></i>
-        </div>
-
-        <!-- EJEMPLO 3: API REST -->
-        <h3 style="color: #00eaff; margin-top: 25px;">API REST: Sistema de Tareas</h3>
-        <p><strong>Tecnologías:</strong> Node.js · Express · MongoDB · JWT</p>
-        <ul>
-          <li>Desarrollé API RESTful con autenticación JWT y operaciones CRUD.</li><br>
-          <li>Documenté interactivamente con Swagger UI.</li><br>
-          <li>Fue consumida por frontend en React y app en Flutter.</li>
-        </ul>
-        <div class="tech-stack">
-          <i class="devicon-nodejs-plain"></i>
-          <i class="devicon-express-original"></i>
-          <i class="devicon-mongodb-plain"></i>
-        </div>
-
-        <!-- EJEMPLO 4: Portafolio TRON -->
-        <h3 style="color: #00eaff; margin-top: 25px;">Portafolio Digital TRON</h3>
-        <p><strong>Tecnologías:</strong> HTML · CSS · JavaScript · i18n · Hostinger</p>
-        <ul>
-          <li>Diseñé y desarrollé CV/portafolio con estética TRON (neón, grid, animaciones).</li><br>
-          <li>Implementé sistema de idiomas español/inglés (i18n) y acordeones interactivos.</li><br>
-          <li><strong>Publicado en:</strong> Hostinger (producción real).</li>
-        </ul>
-        <div class="tech-stack">
-          <i class="devicon-html5-plain"></i>
-          <i class="devicon-css3-plain"></i>
-          <i class="devicon-javascript-plain"></i>
-          <i class="devicon-github-original"></i>
+            <div class="tech-stack">
+              <i class="devicon-html5-plain"></i>
+              <i class="devicon-css3-plain"></i>
+              <i class="devicon-javascript-plain"></i>
+              <i class="devicon-github-original"></i>
+            </div>
+          </div>
+          <div class="project-side-gallery">
+             <!-- Espacio para futuro carrusel -->
+          </div>
         </div>
 
       </div>

@@ -97,7 +97,7 @@ h3 {
 
 /* LISTAS */
 p {
-  font-size: 1rem; /* Regreso a tamaño original que se veía bien */
+  font-size: 1.1rem; /* Aumentado ligeramente para llenar mejor los espacios */
   line-height: 1.6;
   margin-bottom: 15px;
   text-align: left;
@@ -154,7 +154,7 @@ ul {
 .accordion-content ul li {
   position: relative;
   padding-left: 20px;
-  font-size: 1rem; /* Tamaño estándar original */
+  font-size: 1.05rem; /* Proporcional a los párrafos */
   line-height: 1.5;
   margin-bottom: 10px;
   text-align: left;
@@ -367,33 +367,56 @@ ul {
 
 .carousel {
   position: relative;
-  max-width: 550px;
-  margin: 30px auto; /* Aumentado margen para dar espacio a botones externos */
+  margin: 30px auto;
   opacity: 0;
   transition: opacity 0.5s ease;
   padding: 10px;
   background: rgba(0, 234, 255, 0.03);
   border: 1px solid rgba(0, 234, 255, 0.1);
   border-radius: 8px;
-  overflow: visible !important; /* CRÍTICO para que se vean los botones */
+  overflow: visible !important;
+}
+
+/* VARIANTE HORIZONTAL (Sistemas Web) */
+.carousel-landscape {
+  max-width: 85%; /* Más adaptable */
+}
+
+.carousel-landscape .carousel-track {
+  height: auto; /* Controlado dinámicamente por JS */
+  min-height: 300px;
+}
+
+/* VARIANTE VERTICAL (Apps Móviles) */
+.carousel-portrait {
+  max-width: 320px; 
+}
+
+.carousel-portrait .carousel-track {
+  height: auto; /* Controlado dinámicamente por JS */
+  min-height: 450px;
 }
 
 .carousel-track {
   position: relative;
   width: 100%;
-  min-height: 200px; /* Evitar que colapse si no hay imagen */
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent; /* Eliminado fondo negro para evitar bordes feos */
   border-radius: 8px;
   border: 2px solid #00eaff;
   box-shadow: 0 0 15px rgba(0, 234, 255, 0.3);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slide {
-  width: 100%;
-  height: auto; /* Regreso al tamaño natural */
-  display: none; /* Regreso a la lógica original de visibilidad */
-  border-radius: 6px;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* VOLVER A CONTAIN: Ver imagen completa sin cortes */
+  display: none;
   filter: saturate(1) brightness(1);
 }
 
@@ -505,19 +528,19 @@ ul {
   backdrop-filter: blur(4px);
 }
 
-.prev { left: -55px; }
-.next { right: -55px; }
+.prev { left: -45px; }
+.next { right: -45px; }
 
 /* Asegurar que el contenido del acordeón no corte los botones */
 .accordion-content {
   overflow: visible !important;
-  padding: 10px 0; /* Eliminado el padding lateral excesivo de 60px */
+  padding: 10px 45px; /* Añadido padding lateral para botones */
 }
 
 /* Solo aplicar el espacio extra para botones donde hay una galería */
 .project-gallery {
   position: relative;
-  padding: 0 50px; /* Margen local solo para la zona del carrusel */
+  padding: 0; 
   margin-top: 25px;
 }
 
@@ -535,6 +558,52 @@ ul {
     background: rgba(0, 0, 0, 0.4);
     width: 35px;
     height: 35px;
+  }
+}
+
+/* ===============================
+   ESTILOS PARA FILA DE PROYECTOS (LADO A LADO)
+   =============================== */
+.project-item {
+  display: flex;
+  gap: 20px; /* Reducido para mayor cercanía */
+  align-items: center;
+  margin-bottom: 35px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 234, 255, 0.1);
+}
+
+.project-item:last-child {
+  border-bottom: none;
+}
+
+.project-info {
+  flex: 1.2; /* Dar un poco más de peso al texto */
+}
+
+.project-side-gallery {
+  flex: 0 0 320px; 
+}
+
+.project-side-gallery .carousel {
+  margin-top: 0;
+  background: transparent; /* Sin fondo para que no se vea el cuadro negro */
+  border: none;
+}
+
+.project-info h3 {
+  margin-top: 0 !important; /* Quitar margen superior extra */
+}
+
+@media (max-width: 900px) {
+  .project-item {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .project-side-gallery {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 

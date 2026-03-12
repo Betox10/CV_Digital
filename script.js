@@ -168,7 +168,21 @@ const translations = {
     rec_title: "Reconocimientos",
     rec1: "Reconocimiento por Innovación – Hackathon NASA ICP",
     rec2: "Participante – HydroTalent 2023 y 2025",
-    rec3: "Participante y Colaborador – FLISOL 20° Aniversario"
+    rec3: "Participante y Colaborador – FLISOL 20° Aniversario",
+    
+    // Proyectos Personales
+    PP_title: "Proyectos Personales",
+    paper_title: "App: Paperman",
+    paper_tech: "Flutter · Dart · Mobile Development",
+    paper_des1: "Desarrollé una aplicación móvil optimizada con el framework Flutter.",
+    paper_des2: "Implementé una interfaz intuitiva y dinámica utilizando el lenguaje Dart.",
+    paper_des3: "Gestión de estados profesional y diseño responsivo para dispositivos Android/iOS.",
+    
+    tron_title: "Portafolio Digital TRON",
+    tron_tech: "HTML · CSS · JavaScript · i18n · Hostinger",
+    tron_des1: "Diseñé y desarrollé CV/portafolio con estética TRON (neón, grid, animaciones).",
+    tron_des2: "Implementé sistema de idiomas español/inglés (i18n) y acordeones interactivos.",
+    tron_des3: "Publicado en: Hostinger (producción real)."
   },
   
   en: {
@@ -273,9 +287,50 @@ const translations = {
     rec_title: "Recognitions",
     rec1: "Recognition for Innovation – NASA ICP Hackathon",
     rec2: "Participant – HydroTalent 2023 and 2025",
-    rec3: "Participant and Collaborator – FLISOL 20th Anniversary"
+    rec3: "Participant and Collaborator – FLISOL 20th Anniversary",
+    
+    // Personal Projects
+    PP_title: "Personal Projects",
+    paper_title: "App: Paperman",
+    paper_tech: "Flutter · Dart · Mobile Development",
+    paper_des1: "I developed an optimized mobile application with the Flutter framework.",
+    paper_des2: "I implemented an intuitive and dynamic interface using the Dart language.",
+    paper_des3: "Professional state management and responsive design for Android/iOS devices.",
+    
+    tron_title: "TRON Digital Portfolio",
+    tron_tech: "HTML · CSS · JavaScript · i18n · Hostinger",
+    tron_des1: "I designed and developed a CV/portfolio with TRON aesthetics (neon, grid, animations).",
+    tron_des2: "I implemented a Spanish/English language system (i18n) and interactive accordions.",
+    tron_des3: "Published on: Hostinger (real production)."
   }
 };
+
+function adjustCarouselHeight(carousel) {
+  const activeSlide = carousel.querySelector(".slide.active");
+  if (!activeSlide) return;
+  
+  const track = carousel.querySelector(".carousel-track");
+  
+  const update = () => {
+    if (activeSlide.naturalWidth > 0) {
+      const ratio = activeSlide.naturalHeight / activeSlide.naturalWidth;
+      const width = track.offsetWidth;
+      // Limitar altura máxima para no romper el layout
+      const maxHeight = window.innerHeight * 0.7;
+      let targetHeight = width * ratio;
+      
+      if (targetHeight > maxHeight) targetHeight = maxHeight;
+      
+      track.style.height = `${targetHeight}px`;
+    }
+  };
+
+  if (activeSlide.complete) {
+    update();
+  } else {
+    activeSlide.onload = update;
+  }
+}
 
 function setLanguage(lang) {
   localStorage.setItem("lang", lang);
@@ -339,6 +394,9 @@ function initCarousels() {
       let activeIdx = 0;
       slides.forEach((s, i) => { if(s.classList.contains("active")) activeIdx = i; });
       loader.style.width = `${((activeIdx + 1) / slides.length) * 100}%`;
+      
+      // Ajustar altura inicial
+      adjustCarouselHeight(carousel);
     }
 
     // Efecto de aparición suave
@@ -372,6 +430,9 @@ function moveSlide(carouselId, direction) {
   // Forzar un reflow para que la transición se note si fuera necesario
   // (aunque con clases basta)
   slides[newIndex].classList.add("active");
+  
+  // Ajustar altura al cambiar slide
+  adjustCarouselHeight(carousel);
 
   // Actualizar barra de progreso
   const loader = carousel.querySelector(".carousel-loader");
@@ -395,4 +456,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setLanguage(savedLang);
   initAccordion();
   initCarousels();
+  
+  window.addEventListener("resize", () => {
+    document.querySelectorAll(".carousel").forEach(adjustCarouselHeight);
+  });
 });
