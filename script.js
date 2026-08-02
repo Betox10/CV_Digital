@@ -11,6 +11,18 @@ function resize() {
 resize();
 window.addEventListener("resize", resize);
 
+// Recalculate cycles on resize (debounced)
+function debounce(fn, wait = 200) {
+  let t;
+  return (...args) => {
+    clearTimeout(t);
+    t = setTimeout(() => fn(...args), wait);
+  };
+}
+window.addEventListener('resize', debounce(() => {
+  initCycles();
+} , 250));
+
 const colors = ["#00e5ff", "#ff9f1c", "#ffd60a", "#ff2d2d"];
 
 class Cycle {
@@ -52,14 +64,31 @@ class Cycle {
   }
 }
 
-const cycles = Array.from({ length: 25 }, () => new Cycle());
+let cycles = [];
+
+function initCycles() {
+  const w = window.innerWidth;
+  let count = 25;
+  if (w < 700) count = 8;
+  else if (w < 1200) count = 16;
+  cycles.length = 0;
+  for (let i = 0; i < count; i++) cycles.push(new Cycle());
+}
 
 function animate() {
-  ctx.fillStyle = "rgba(0,0,0,0.1)";
+  if (document.hidden) {
+    // reduce work when tab not visible
+    setTimeout(() => requestAnimationFrame(animate), 1000);
+    return;
+  }
+
+  ctx.fillStyle = "rgba(0,0,0,0.12)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   cycles.forEach(cycle => cycle.move());
   requestAnimationFrame(animate);
 }
+
+initCycles();
 animate();
 
 /* ===============================
@@ -99,6 +128,10 @@ const translations = {
     hab9: "Flutter - Nivel Junior",
     hab10: "GitHub - Nivel Junior",
     hab11: "IoT - Nivel Junior",
+    hab12: "Vibe Coding - Desarrollo asistido por IA",
+    hab12_icon: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>",
+    hab13: "Orquestación de Agentes de IA",
+    hab13_icon: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='3'/><path d='M19 12a7 7 0 0 0-14 0'/><path d='M12 5v2M12 17v2M5 12H3M21 12h-2'/></svg>",
     
     // Perfil Profesional
     pp_title: "Perfil Profesional",
@@ -108,7 +141,7 @@ const translations = {
     
     // Experiencia Laboral - Títulos
     EL_title: "Experiencia Laboral",
-    EL_sub1: "Becario en Dirección Académica",
+    EL_sub1: "Desarrollador Full Stack - STRIDE",
     fetch_sub1: "UTMA | Mayo 2025 – Presente",
     EL_sub2: "Desarrollador Full Stack SED",
     fetch_sub2: "UTMA | Enero – Abril 2025",
@@ -118,9 +151,9 @@ const translations = {
     fetch_sub4: "Club Campestre Aguascalientes | Abril – Agosto 2024",
     
     // Experiencia Laboral - Descripciones (PRIMERA PERSONA)
-    stride_des1: "Lideré el desarrollo full-stack de STRIDE, plataforma institucional para gestión académica, actualmente en producción en Hostinger.",
-    stride_des2: "Implementé frontend con React.js y backend con Node.js, almacenado en un repositorio de Github para su implementación.",
-    stride_des3: "Ayudé a la implementación de servicios tecnológicos dentro de la universidad.",
+    stride_des1: "Diseñé y desarrollé STRIDE, una SPA con API REST para gestión académica y administrativa, centralizando matrices de indicadores dinámicos, asignación de tareas con evidencias y paneles en tiempo real.",
+    stride_des2: "Stack: React 19, React Router v7, Axios, Socket.io (cliente/servidor), React-Quill-new, Node.js, Express 5, MySQL (mysql2), Multer, Bcryptjs.",
+    stride_des3: "Arquitectura desacoplada SPA+API; uso de campos JSON en MySQL para esquemas dinámicos; lideré integración acelerada con IA y supervisé seguridad, sincronización en tiempo real y refactorización crítica.",
     
     sed_des1: "Diseñé y desarrollé desde cero el Sistema de Evaluación Docente (SED) para UTMA.",
     sed_des2: "Stack: PHP (backend), MySQL (BD), HTML5/CSS3/JavaScript (frontend).",
@@ -222,6 +255,10 @@ const translations = {
     hab9: "Flutter - Junior Level",
     hab10: "GitHub - Junior Level",
     hab11: "IoT - Junior Level",
+    hab12: "Vibe Coding - AI-assisted development",
+    hab12_icon: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>",
+    hab13: "AI Agent Orchestration",
+    hab13_icon: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='3'/><path d='M19 12a7 7 0 0 0-14 0'/><path d='M12 5v2M12 17v2M5 12H3M21 12h-2'/></svg>",
     
     // Professional Profile
     pp_title: "Professional Profile",
@@ -241,9 +278,9 @@ const translations = {
     fetch_sub4: "Club Campestre Aguascalientes | April – August 2024",
     
     // Work Experience - Descriptions (FIRST PERSON)
-    stride_des1: "I led full-stack development of STRIDE, institutional platform for academic management, currently in production on Hostinger.",
-    stride_des2: "I implemented the frontend with React.js and the backend with Node.js, stored in a GitHub repository for implementation.",
-    stride_des3: "I assisted in the implementation of technological services within the university.",
+    stride_des1: "I led the design and development of STRIDE, an SPA with a REST API for academic and administrative management, centralizing dynamic indicator matrices, task assignment with evidence, and real-time dashboards.",
+    stride_des2: "Tech stack: React 19, React Router v7, Axios, Socket.io (client/server), React-Quill-new, Node.js, Express 5, MySQL (mysql2), Multer, Bcryptjs.",
+    stride_des3: "Decoupled SPA+API architecture; JSON columns in MySQL for dynamic schemas; led AI-accelerated component generation and audited security, real-time sync and critical refactors.",
     
     sed_des1: "I designed and developed the Teacher Evaluation System (SED) from scratch for UTMA.",
     sed_des2: "Stack: PHP (backend), MySQL (DB), HTML5/CSS3/JavaScript (frontend).",
@@ -348,6 +385,8 @@ function setLanguage(lang) {
       el.textContent = translations[lang][key];
     }
   });
+  // ensure dynamically added skill items update text
+  if (typeof renderExtraSkills === 'function') renderExtraSkills(lang);
 }
 
 /* ===============================
@@ -359,6 +398,16 @@ function initAccordion() {
   document.querySelectorAll('.accordion-header').forEach(header => {
     header.removeEventListener('click', openModal);
     header.addEventListener('click', openModal);
+    // keyboard support (Enter / Space)
+    header.removeEventListener('keydown', header._keyHandler);
+    const keyHandler = (ev) => {
+      if (ev.key === 'Enter' || ev.key === ' ') {
+        ev.preventDefault();
+        openModal({ currentTarget: header });
+      }
+    };
+    header._keyHandler = keyHandler;
+    header.addEventListener('keydown', keyHandler);
   });
   
   const modalOverlay = document.getElementById("globalModal");
@@ -387,13 +436,23 @@ function openModal(e) {
   if(titleEl.hasAttribute("data-i18n")) {
       modalTitle.setAttribute("data-i18n", titleEl.getAttribute("data-i18n"));
   }
+
+  // Aplicar tema del modal según la sección activa
+  if (modal) {
+    modal.classList.remove('modal-orange', 'modal-yellow');
+    if (parentCard.classList.contains('card-orange')) modal.classList.add('modal-orange');
+    if (parentCard.classList.contains('card-yellow')) modal.classList.add('modal-yellow');
+  }
   
   currentModalSource = parentCard;
+  // set aria-expanded on header for accessibility
+  if (header && header.setAttribute) header.setAttribute('aria-expanded', 'true');
   
   // Se mueve el contenido para no romper listeners de carrusel
   modalBody.appendChild(content);
   
   modal.classList.add("active");
+  if (modal && modal.setAttribute) modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = "hidden"; // Desactivar scroll principal
   
   // Reajustar tamaño de carruseles si hay
@@ -413,9 +472,15 @@ window.closeModal = function() {
       currentModalSource.appendChild(content);
     }
   }
-  
+  // reset aria-expanded on previous header
+  if (currentModalSource) {
+    const hdr = currentModalSource.querySelector('.accordion-header');
+    if (hdr && hdr.setAttribute) hdr.setAttribute('aria-expanded', 'false');
+  }
+
   currentModalSource = null;
-  modal.classList.remove("active");
+  modal.classList.remove("active", "modal-orange", "modal-yellow");
+  if (modal && modal.setAttribute) modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = "auto"; // Reactivar scroll principal
 }
 
@@ -509,8 +574,48 @@ document.addEventListener("DOMContentLoaded", () => {
   setLanguage(savedLang);
   initAccordion();
   initCarousels();
+  renderExtraSkills(savedLang);
+  // Theme initialization
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  const themeToggleBtn = document.getElementById('themeToggle');
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  }
   
   window.addEventListener("resize", () => {
     document.querySelectorAll(".carousel").forEach(adjustCarouselHeight);
   });
 });
+
+function renderExtraSkills(lang) {
+  const skillsList = document.querySelector('.skills-list');
+  if (!skillsList) return;
+
+  // Vibe Coding
+  if (!document.getElementById('skill-vibe')) {
+    const li = document.createElement('li');
+    li.id = 'skill-vibe';
+    li.innerHTML = `${translations[lang].hab12_icon} <span data-i18n="hab12"></span>`;
+    skillsList.appendChild(li);
+  }
+
+  // AI Agent Orchestration
+  if (!document.getElementById('skill-orch')) {
+    const li = document.createElement('li');
+    li.id = 'skill-orch';
+    li.innerHTML = `${translations[lang].hab13_icon} <span data-i18n="hab13"></span>`;
+    skillsList.appendChild(li);
+  }
+
+  // Ensure translations are applied to newly added elements (without recursion)
+  const vibeSpan = document.querySelector('#skill-vibe [data-i18n]');
+  if (vibeSpan && translations[lang] && translations[lang].hab12) vibeSpan.textContent = translations[lang].hab12;
+  const orchSpan = document.querySelector('#skill-orch [data-i18n]');
+  if (orchSpan && translations[lang] && translations[lang].hab13) orchSpan.textContent = translations[lang].hab13;
+}

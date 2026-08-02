@@ -17,6 +17,7 @@
   <div class="lang-switch">
     <button onclick="setLanguage('es')">ES</button>
     <button onclick="setLanguage('en')">EN</button>
+    <button class="theme-toggle" id="themeToggle">Toggle Theme</button>
   </div>
 </header>
 
@@ -29,7 +30,7 @@
     <aside class="col-left-top">
       <!-- CONTACTO (ACORDEÓN) -->
       <section class="card card-orange accordion">
-        <div class="accordion-header">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
           <h2 data-i18n="cont_title">Contacto</h2>
           <span class="accordion-icon">▶</span>
         </div>
@@ -43,7 +44,7 @@
 
       <!-- EDUCACIÓN (ACORDEÓN) -->
       <section class="card accordion">
-        <div class="accordion-header">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
           <h2 data-i18n="edu">Educación</h2>
           <span class="accordion-icon">▶</span>
         </div>
@@ -63,7 +64,7 @@
 
       <!-- LOGROS (ACORDEÓN) -->
       <section class="card card-yellow accordion">
-        <div class="accordion-header">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
           <h2 data-i18n="Log_title">Logros</h2>
           <span class="accordion-icon">▶</span>
         </div>
@@ -102,7 +103,7 @@
     <aside class="col-right-top">
       <!-- HABILIDADES (ACORDEÓN) -->
       <section class="card card-yellow accordion">
-        <div class="accordion-header">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
           <h2 data-i18n="hab_title">Habilidades</h2>
           <span class="accordion-icon">▶</span>
         </div>
@@ -125,33 +126,33 @@
 
       <!-- CERTIFICACIONES (ACORDEÓN) -->
       <section class="card accordion">
-        <div class="accordion-header">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
           <h2 data-i18n="Cer_title">Certificaciones</h2>
           <span class="accordion-icon">▶</span>
         </div>
         <div class="accordion-content">
-          <ul>
-            <li>Google Cloud</li>
-            <li>SCRUM Fundamentals</li>
-            <li>Internet Computer Protocol (ICP)</li>
-            <li>OpenPayment</li>
-            <li data-i18n="cer1">Desarrollo Instruccional en Educación en Línea</li>
+          <ul class="cert-list">
+            <li><svg class="list-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 8h10M7 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="17" r="2" stroke="currentColor" stroke-width="1.5"/></svg>Google Cloud</li>
+            <li><svg class="list-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 8h10M7 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="17" r="2" stroke="currentColor" stroke-width="1.5"/></svg>SCRUM Fundamentals</li>
+            <li><svg class="list-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 8h10M7 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="17" r="2" stroke="currentColor" stroke-width="1.5"/></svg>Internet Computer Protocol (ICP)</li>
+            <li><svg class="list-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 8h10M7 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="17" r="2" stroke="currentColor" stroke-width="1.5"/></svg>OpenPayment</li>
+            <li><svg class="list-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 8h10M7 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="17" r="2" stroke="currentColor" stroke-width="1.5"/></svg><span data-i18n="cer1">Desarrollo Instruccional en Educación en Línea</span></li>
           </ul>
         </div>
       </section>
 
       <!-- RECONOCIMIENTOS (ACORDEÓN) -->
       <section class="card card-yellow accordion">
-        <div class="accordion-header">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
           <h2 data-i18n="rec_title">Reconocimientos</h2>
           <span class="accordion-icon">▶</span>
         </div>
         <div class="accordion-content">
           <ul>
-            <li>Galactic Problem Solver – NASA Space Apps 2025</li>
-            <li data-i18n="rec1">Reconocimiento por Innovación – Hackathon NASA ICP</li>
-            <li data-i18n="rec2">Participante – HydroTalent 2023 y 2025</li>
-            <li data-i18n="rec3">Participante y Colaborador – FLISOL 20° Aniversario</li>
+            <li><svg class="list-icon" width="18" height="18" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.6 5.3L20 9l-4 3.8L17 20l-5-2.6L7 20l1-7.2L4 9l5.4-1.7L12 2z" stroke="currentColor" stroke-width="1" fill="currentColor"/></svg>Galactic Problem Solver – NASA Space Apps 2025</li>
+            <li><svg class="list-icon" width="18" height="18" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.6 5.3L20 9l-4 3.8L17 20l-5-2.6L7 20l1-7.2L4 9l5.4-1.7L12 2z" stroke="currentColor" stroke-width="1" fill="currentColor"/></svg><span data-i18n="rec1">Reconocimiento por Innovación – Hackathon NASA ICP</span></li>
+            <li><svg class="list-icon" width="18" height="18" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.6 5.3L20 9l-4 3.8L17 20l-5-2.6L7 20l1-7.2L4 9l5.4-1.7L12 2z" stroke="currentColor" stroke-width="1" fill="currentColor"/></svg><span data-i18n="rec2">Participante – HydroTalent 2023 y 2025</span></li>
+            <li><svg class="list-icon" width="18" height="18" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.6 5.3L20 9l-4 3.8L17 20l-5-2.6L7 20l1-7.2L4 9l5.4-1.7L12 2z" stroke="currentColor" stroke-width="1" fill="currentColor"/></svg><span data-i18n="rec3">Participante y Colaborador – FLISOL 20° Aniversario</span></li>
           </ul>
         </div>
       </section>
@@ -164,14 +165,14 @@
     <!-- COLUMNA IZQUIERDA INFERIOR (EXPERIENCIA LABORAL) -->
     <section class="col-left-bottom">
       <section class="card accordion">
-        <div class="accordion-header">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
           <h2 data-i18n="EL_title">Experiencia Laboral</h2>
           <span class="accordion-icon">▶</span>
         </div>
         <div class="accordion-content">
 
           <!-- Experiencia 1: STRIDE -->
-          <h3 data-i18n="EL_sub1">Becario en Dirección Académica</h3>
+          <h3 data-i18n="EL_sub1">Desarrollador Full Stack - STRIDE</h3>
           <p data-i18n="fetch_sub1"><strong>UTMA</strong> | Mayo 2025 – Presente</p>
           <ul>
             <li data-i18n="stride_des1">Lideré el desarrollo full-stack de STRIDE, plataforma institucional para gestión académica, actualmente en producción en Hostinger.</li><br>
@@ -189,10 +190,11 @@
             <div class="carousel carousel-landscape" id="apiCarousel">
               <button class="prev" onclick="moveSlide('apiCarousel', -1)">‹</button>
               <div class="carousel-track">
-                <img src="assets/STRIDE/STRIDE WITHE LETTERS.png" class="slide logo">
-                <img src="assets/STRIDE/str1.png" class="slide active">
-                <img src="assets/STRIDE/str2.png" class="slide">
-                <img src="assets/STRIDE/str3.png" class="slide">
+                <img src="assets/STRIDE/STRIDE WITHE LETTERS.png" class="slide logo" loading="lazy" alt="STRIDE logo">
+                <img src="assets/STRIDE/stride1.png" class="slide active" loading="lazy" alt="STRIDE screenshot 1">
+                <img src="assets/STRIDE/stride2.png" class="slide" loading="lazy" alt="STRIDE screenshot 2">
+                <img src="assets/STRIDE/stride3.png" class="slide" loading="lazy" alt="STRIDE screenshot 3">
+                <img src="assets/STRIDE/stride4.png" class="slide" loading="lazy" alt="STRIDE screenshot 4">
               </div>
               <button class="next" onclick="moveSlide('apiCarousel', 1)">›</button>
             </div>
@@ -218,10 +220,10 @@
             <div class="carousel carousel-landscape" id="sedCarousel">
               <button class="prev" onclick="moveSlide('sedCarousel', -1)">‹</button>
               <div class="carousel-track">
-                <img src="assets/SED/sed1.png" class="slide active">
-                <img src="assets/SED/sed2.png" class="slide">
-                <img src="assets/SED/sed3.png" class="slide">
-                <img src="assets/SED/sed4.png" class="slide">
+                <img src="assets/SED/sed1.png" class="slide active" loading="lazy" alt="SED screenshot 1">
+                <img src="assets/SED/sed2.png" class="slide" loading="lazy" alt="SED screenshot 2">
+                <img src="assets/SED/sed3.png" class="slide" loading="lazy" alt="SED screenshot 3">
+                <img src="assets/SED/sed4.png" class="slide" loading="lazy" alt="SED screenshot 4">
               </div>
               <button class="next" onclick="moveSlide('sedCarousel', 1)">›</button>
             </div>
@@ -258,11 +260,11 @@
             <div class="carousel carousel-landscape" id="campCarousel">
               <button class="prev" onclick="moveSlide('campCarousel', -1)">‹</button>
               <div class="carousel-track">
-                <img src="assets/CAMP/camp1.png" class="slide active">
-                <img src="assets/CAMP/camp2.png" class="slide">
-                <img src="assets/CAMP/camp3.png" class="slide">
-                <img src="assets/CAMP/camp4.png" class="slide">
-                <img src="assets/CAMP/camp5.png" class="slide">
+                <img src="assets/CAMP/camp1.png" class="slide active" loading="lazy" alt="Camp screenshot 1">
+                <img src="assets/CAMP/camp2.png" class="slide" loading="lazy" alt="Camp screenshot 2">
+                <img src="assets/CAMP/camp3.png" class="slide" loading="lazy" alt="Camp screenshot 3">
+                <img src="assets/CAMP/camp4.png" class="slide" loading="lazy" alt="Camp screenshot 4">
+                <img src="assets/CAMP/camp5.png" class="slide" loading="lazy" alt="Camp screenshot 5">
               </div>
               <button class="next" onclick="moveSlide('campCarousel', 1)">›</button>
             </div>
@@ -275,7 +277,7 @@
     <!-- COLUMNA DERECHA INFERIOR (ACTIVIDADES EXTRACURRICULARES) -->
     <section class="col-right-bottom">
       <section class="card accordion">
-        <div class="accordion-header">
+        <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
           <h2 data-i18n="AE_title">Actividades Extracurriculares</h2>
           <span class="accordion-icon">▶</span>
         </div>
@@ -300,9 +302,9 @@
             <div class="carousel carousel-landscape" id="pionCarousel">
               <button class="prev" onclick="moveSlide('pionCarousel', -1)">‹</button>
               <div class="carousel-track">
-                <img src="assets/PION/pion1.png" class="slide active">
-                <img src="assets/PION/pion2.png" class="slide">
-                <img src="assets/PION/pion3.png" class="slide">
+                <img src="assets/PION/pion1.png" class="slide active" loading="lazy" alt="PION screenshot 1">
+                <img src="assets/PION/pion2.png" class="slide" loading="lazy" alt="PION screenshot 2">
+                <img src="assets/PION/pion3.png" class="slide" loading="lazy" alt="PION screenshot 3">
               </div>
               <button class="next" onclick="moveSlide('pionCarousel', 1)">›</button>
             </div>
@@ -325,12 +327,12 @@
             <div class="carousel carousel-landscape" id="tramCarousel">
               <button class="prev" onclick="moveSlide('tramCarousel', -1)">‹</button>
               <div class="carousel-track">
-                <img src="assets/TRAM/tram1.png" class="slide active">
-                <img src="assets/TRAM/tram2.png" class="slide">
-                <img src="assets/TRAM/tram3.png" class="slide">
-                <img src="assets/TRAM/tram4.png" class="slide">
-                <img src="assets/TRAM/tram5.png" class="slide">
-                <img src="assets/TRAM/tram6.png" class="slide">
+                <img src="assets/TRAM/tram1.png" class="slide active" loading="lazy" alt="TRAM screenshot 1">
+                <img src="assets/TRAM/tram2.png" class="slide" loading="lazy" alt="TRAM screenshot 2">
+                <img src="assets/TRAM/tram3.png" class="slide" loading="lazy" alt="TRAM screenshot 3">
+                <img src="assets/TRAM/tram4.png" class="slide" loading="lazy" alt="TRAM screenshot 4">
+                <img src="assets/TRAM/tram5.png" class="slide" loading="lazy" alt="TRAM screenshot 5">
+                <img src="assets/TRAM/tram6.png" class="slide" loading="lazy" alt="TRAM screenshot 6">
               </div>
               <button class="next" onclick="moveSlide('tramCarousel', 1)">›</button>
             </div>
@@ -364,9 +366,9 @@
             <div class="carousel carousel-landscape" id="fireguardCarousel">
               <button class="prev" onclick="moveSlide('fireguardCarousel', -1)">‹</button>
               <div class="carousel-track">
-                <img src="assets/FIREGUARD/fir1.png" class="slide active">
-                <img src="assets/FIREGUARD/fir2.png" class="slide">
-                <img src="assets/FIREGUARD/fir3.png" class="slide">
+                <img src="assets/FIREGUARD/fir1.png" class="slide active" loading="lazy" alt="FireGuard screenshot 1">
+                <img src="assets/FIREGUARD/fir2.png" class="slide" loading="lazy" alt="FireGuard screenshot 2">
+                <img src="assets/FIREGUARD/fir3.png" class="slide" loading="lazy" alt="FireGuard screenshot 3">
               </div>
               <button class="next" onclick="moveSlide('fireguardCarousel', 1)">›</button>
             </div>
@@ -379,7 +381,7 @@
 
   <div class="row-projects">
     <section class="card accordion" style="grid-column: 1 / -1;">
-      <div class="accordion-header">
+      <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
         <h2 data-i18n="PP_title">Proyectos Personales</h2>
         <span class="accordion-icon">▶</span>
       </div>
@@ -403,17 +405,17 @@
           <div class="project-side-gallery">
           <div class="carousel carousel-portrait" id="paperCarousel">
             <button class="prev" onclick="moveSlide('paperCarousel', -1)">‹</button>
-            <div class="carousel-track">
-              <img src="assets/PAPER/0.png" class="slide active">
-              <img src="assets/PAPER/1.jpeg" class="slide">
-              <img src="assets/PAPER/2.jpeg" class="slide">
-              <img src="assets/PAPER/3.jpeg" class="slide">
-              <img src="assets/PAPER/4.jpeg" class="slide">
-              <img src="assets/PAPER/5.jpeg" class="slide">
-              <img src="assets/PAPER/6.jpeg" class="slide">
-              <img src="assets/PAPER/7.jpeg" class="slide">
-              <img src="assets/PAPER/8.jpeg" class="slide">
-              <img src="assets/PAPER/9.jpeg" class="slide">
+              <div class="carousel-track">
+              <img src="assets/PAPER/0.png" class="slide active" loading="lazy" alt="Paperman screenshot 0">
+              <img src="assets/PAPER/1.jpeg" class="slide" loading="lazy" alt="Paperman screenshot 1">
+              <img src="assets/PAPER/2.jpeg" class="slide" loading="lazy" alt="Paperman screenshot 2">
+              <img src="assets/PAPER/3.jpeg" class="slide" loading="lazy" alt="Paperman screenshot 3">
+              <img src="assets/PAPER/4.jpeg" class="slide" loading="lazy" alt="Paperman screenshot 4">
+              <img src="assets/PAPER/5.jpeg" class="slide" loading="lazy" alt="Paperman screenshot 5">
+              <img src="assets/PAPER/6.jpeg" class="slide" loading="lazy" alt="Paperman screenshot 6">
+              <img src="assets/PAPER/7.jpeg" class="slide" loading="lazy" alt="Paperman screenshot 7">
+              <img src="assets/PAPER/8.jpeg" class="slide" loading="lazy" alt="Paperman screenshot 8">
+              <img src="assets/PAPER/9.jpeg" class="slide" loading="lazy" alt="Paperman screenshot 9">
             </div>
             <button class="next" onclick="moveSlide('paperCarousel', 1)">›</button>
             </div>
@@ -448,11 +450,11 @@
 </main>
 
 <!-- GLOBAL MODAL OVERLAY -->
-<div id="globalModal" class="modal-overlay">
+<div id="globalModal" class="modal-overlay" role="dialog" aria-hidden="true" aria-labelledby="modalTitle">
   <div class="modal-content-box">
     <div class="modal-header-top">
       <h2 id="modalTitle">Título</h2>
-      <button class="modal-close-btn" onclick="closeModal()">×</button>
+      <button class="modal-close-btn" onclick="closeModal()" aria-label="Cerrar">×</button>
     </div>
     <div id="modalBody"></div>
   </div>

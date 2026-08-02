@@ -2,11 +2,28 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg: #000;
+  --text: #00eaff;
+  --muted: rgba(0,234,255,0.08);
+  --card-bg: rgba(0,0,0,0.85);
+  --accent: #00eaff;
+  --glass: 4px;
+}
+
+[data-theme="dark"] {
+  --bg: #000;
+  --text: #aefcff;
+  --muted: rgba(0,234,255,0.05);
+  --card-bg: rgba(8,8,10,0.92);
+  --accent: #00eaff;
+}
+
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
-  background: black;
-  color: #00eaff;
+  background: var(--bg);
+  color: var(--text);
   overflow-x: hidden;
 }
 
@@ -17,6 +34,20 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: -1;
+}
+
+/* Header overlay to improve contrast over canvas */
+.header {
+  position: relative;
+  z-index: 2;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
   z-index: -1;
 }
 
@@ -68,7 +99,7 @@ body {
 .card {
   border: 1px;
   padding: 24px; /* Padding moderado y profesional */
-  background: rgba(0, 0, 0, 0.85);
+  background: var(--card-bg);
   backdrop-filter: blur(4px);
   box-shadow: 0 0 18px rgba(0, 234, 255, 0.15);
   --tron-color: #00eaff;
@@ -162,7 +193,7 @@ ul {
 
 /* SOLO ITEMS MUY CORTOS (HABILIDADES, CERTIFICACIONES) EN 2 COLUMNAS */
 .skills-list,
-.card-yellow .accordion-content ul {
+.cert-list {
   display: grid !important;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
@@ -176,6 +207,95 @@ ul {
   background: rgba(0, 234, 255, 0.05);
   border-left: 3px solid #00eaff;
   font-size: 1rem;
+}
+
+.card-yellow .skills-list li,
+.modal-overlay.modal-yellow .skills-list li {
+  background: rgba(255, 214, 0, 0.08) !important;
+  border-left-color: #ffd60a !important;
+}
+
+.card-yellow .skills-list li svg,
+.card-yellow .skills-list li i,
+.modal-overlay.modal-yellow .skills-list li svg,
+.modal-overlay.modal-yellow .skills-list li i {
+  color: #ffd60a !important;
+}
+
+.card-yellow .skills-list li span,
+.modal-overlay.modal-yellow .skills-list li span {
+  color: #ffd60a !important;
+}
+
+/* SVG icons in skills: consistent size and color */
+.skills-list li svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  color: var(--accent);
+  stroke: currentColor;
+}
+
+/* Icons for certs/recognitions */
+.cert-list li,
+.card .accordion-content ul li {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.4;
+  font-size: 1rem;
+}
+
+.cert-list .list-icon,
+.card .accordion-content .list-icon,
+.cert-list li > svg,
+.card .accordion-content li > svg,
+.card .accordion-content ul li > svg {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  flex: 0 0 18px !important;
+  color: var(--accent);
+  fill: currentColor !important;
+  stroke: currentColor !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cert-list li span,
+.card .accordion-content li span {
+  display: inline-block;
+}
+
+.cert-list li span,
+.card .accordion-content li span {
+  display: inline-block;
+}
+
+/* Reduce emoji prominence */
+.skills-list li span.emoji {
+  font-size: 1rem;
+  filter: none;
+}
+
+/* Focus states for accessibility */
+.accordion-header:focus,
+.accordion-header[tabindex]:focus {
+  outline: 3px solid rgba(0,234,255,0.18);
+  outline-offset: 3px;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 6px 10px;
+  margin-left: 8px;
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {
@@ -217,12 +337,31 @@ ul {
 }
 
 .card-yellow {
+  --tron-color: #ffd60a;
+  color: #ffd60a;
+  background: rgba(255, 214, 0, 0.08);
+  border: 1px solid rgba(255, 214, 0, 0.18);
+}
+
+.card-yellow .accordion-header {
+  background: rgba(255, 214, 0, 0.14);
+  border: 1px solid rgba(255, 214, 0, 0.35);
+  border-bottom: 2px solid #ffd60a;
+  box-shadow: none;
+}
+
+.card-yellow .accordion-header h2,
+.card-yellow p,
+.card-yellow li,
+.card-yellow strong,
+.card-yellow span,
+.card-yellow .custom-tech,
+.card-yellow .modal-header-top {
   color: #ffd60a;
 }
 
 .card-yellow h2 {
-  color: #ffe66d;
-  border-bottom-color: #ffd60a;
+  color: #ffd60a;
 }
 
 .card.card-yellow::before {
@@ -234,25 +373,62 @@ ul {
   );
 }
 
-.card-yellow .tech-stack i {
+.card-yellow .tech-stack i,
+.card-yellow .list-icon,
+.card-yellow .devicon,
+.card-yellow .custom-tech {
   color: #ffd60a;
-  text-shadow: 0 0 10px #ffd60a;
+  text-shadow: none;
+}
+
+.card-yellow .accordion-header:hover,
+.card-yellow .accordion-header:focus {
+  border-bottom-color: #ffd60a;
+  text-shadow: none;
+  background: rgba(255, 214, 0, 0.18);
 }
 
 .card-orange {
   --tron-color: #ff9f1c;
   color: #ffb347;
-  box-shadow: 0 0 18px rgba(255, 159, 28, 0.25);
+  background: rgba(255, 159, 28, 0.08);
+  border: 1px solid rgba(255, 159, 28, 0.18);
+}
+
+.card-orange .accordion-header {
+  background: rgba(255, 159, 28, 0.14);
+  border: 1px solid rgba(255, 159, 28, 0.35);
+  border-bottom: 2px solid #ff9f1c;
+  box-shadow: none;
+}
+
+.card-orange .accordion-header h2,
+.card-orange p,
+.card-orange li,
+.card-orange strong,
+.card-orange span,
+.card-orange .custom-tech,
+.card-orange .modal-header-top {
+  color: #ffb347;
 }
 
 .card-orange h2 {
   color: #ffb347;
-  border-bottom-color: #ff9f1c;
 }
 
-.card-orange .tech-stack i {
+.card-orange .tech-stack i,
+.card-orange .list-icon,
+.card-orange .devicon,
+.card-orange .custom-tech {
   color: #ff9f1c;
-  text-shadow: 0 0 10px #ff9f1c;
+  text-shadow: none;
+}
+
+.card-orange .accordion-header:hover,
+.card-orange .accordion-header:focus {
+  border-bottom-color: #ff9f1c;
+  text-shadow: none;
+  background: rgba(255, 159, 28, 0.18);
 }
 
 /* ===============================
@@ -616,9 +792,52 @@ ul {
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.accordion-header:hover {
+.accordion:not(.card-orange):not(.card-yellow) .accordion-header:hover,
+.accordion:not(.card-orange):not(.card-yellow) .accordion-header:focus,
+.accordion:not(.card-orange):not(.card-yellow) .accordion-header:focus-visible {
   border-bottom: 2px solid #00eaff;
   text-shadow: 0 0 10px #00eaff;
+  background: rgba(0, 234, 255, 0.08);
+}
+
+.card-orange > .accordion-header,
+.card-orange .accordion-header {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid #ff9f1c !important;
+  box-shadow: none !important;
+}
+
+.card-orange > .accordion-header:hover,
+.card-orange .accordion-header:focus,
+.card-orange .accordion-header:focus-visible,
+.card-orange .accordion-header:active {
+  border-bottom-color: #ff9f1c !important;
+  text-shadow: none !important;
+  background: rgba(255, 159, 28, 0.08) !important;
+  outline: 3px solid rgba(255, 159, 28, 0.18) !important;
+  outline-offset: 3px !important;
+  box-shadow: none !important;
+}
+
+.card-yellow > .accordion-header,
+.card-yellow .accordion-header {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid #ffd60a !important;
+  box-shadow: none !important;
+}
+
+.card-yellow > .accordion-header:hover,
+.card-yellow .accordion-header:focus,
+.card-yellow .accordion-header:focus-visible,
+.card-yellow .accordion-header:active {
+  border-bottom-color: #ffd60a !important;
+  text-shadow: none !important;
+  background: rgba(255, 214, 0, 0.08) !important;
+  outline: 3px solid rgba(255, 214, 0, 0.18) !important;
+  outline-offset: 3px !important;
+  box-shadow: none !important;
 }
 
 .static-header {
@@ -674,6 +893,38 @@ ul {
   box-shadow: 0 0 25px rgba(0, 234, 255, 0.3);
   padding: 30px;
   position: relative;
+}
+
+.modal-overlay.modal-orange .modal-content-box {
+  border-color: #ff9f1c;
+  box-shadow: 0 0 25px rgba(255, 159, 28, 0.3);
+}
+
+.modal-overlay.modal-orange .modal-header-top {
+  border-bottom-color: rgba(255, 159, 28, 0.35);
+}
+
+.modal-overlay.modal-orange .modal-header-top h2,
+.modal-overlay.modal-orange .accordion-content p,
+.modal-overlay.modal-orange .accordion-content li,
+.modal-overlay.modal-orange .accordion-content ul li {
+  color: #ff9f1c;
+}
+
+.modal-overlay.modal-yellow .modal-content-box {
+  border-color: #ffd60a;
+  box-shadow: 0 0 25px rgba(255, 214, 0, 0.25);
+}
+
+.modal-overlay.modal-yellow .modal-header-top {
+  border-bottom-color: rgba(255, 214, 0, 0.35);
+}
+
+.modal-overlay.modal-yellow .modal-header-top h2,
+.modal-overlay.modal-yellow .accordion-content p,
+.modal-overlay.modal-yellow .accordion-content li,
+.modal-overlay.modal-yellow .accordion-content ul li {
+  color: #ffd60a;
 }
 
 /* Tron Custom Scrollbar para Modal */
